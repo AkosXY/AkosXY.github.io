@@ -1,0 +1,39 @@
+
+<br><br><br>
+<div class="container">
+    <div class="row">
+        <div class="offset-mf-2 col-lg-6 col-md-8 offsetlg-4 offset-md-3">
+            <div class="panel border shadow-lg p-3 mb-5 bg-white rounded-4">
+                <div class="panel-heading">
+                    <img src="assets/images/labloot_icon.png" alt="">
+                    <div class="text-container">
+                        <h2><span class="pt-5 fw-bold">LabLoot </span><span class="fst-italic">Admin</span></h2>
+                        <h3 class="pl-4">Bejelentkezés</h3>
+                    </div>
+                </div>
+                <div class="panel-body p-3">
+                    <form>
+                        <div class="from-group p-2">
+                            <div class="input-container p-3">
+                                <div class="input-email p-2">
+                                    <i class="fa-solid fa-envelope pr-2"></i>
+                                    <input class="input-field pt-1 pb-1 pr-1" type="text" name="" id="" type="email" placeholder="email" size="29">
+                                </div>
+                                <div class="input-password p-2">
+                                    <i class="fa-solid fa-key pr-2"></i>
+                                    <div class="input-field">
+                                        <input class="input-field-password {{showPadding}}" [type]="passType" name="" id="" type="password" placeholder="jelszó" size="23">
+                                        <i (click)="hideShowPassword()" class="fa-solid {{showIcon}} p-2"></i>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary mt-5">Bejelentkezés</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

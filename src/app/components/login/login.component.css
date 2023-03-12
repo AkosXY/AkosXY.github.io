@@ -1,0 +1,57 @@
+.panel-heading{
+    display: flex;
+    align-items: center;
+}
+
+.panel-heading img{
+    height: 140px;
+    padding:10px 20px;
+}
+ 
+
+.center{
+    text-align: center;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.input-container {
+    display: grid;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-email, .input-password {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+
+.input-field-password{
+    border: none;
+    outline: none;
+}
+
+.input-field{
+    text-indent: 5px;    
+    border-radius: 5px;
+    border: 2px solid black;
+    color: black;
+}
+
+.input-field.error{
+    border: 2px solid red;
+    color: red;
+}
+
+button{
+    width: 125px;
+    justify-self: center;
+}
+
