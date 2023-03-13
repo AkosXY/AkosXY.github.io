@@ -1,0 +1,30 @@
+h3{
+  color: white;
+
+  padding: 20px;
+}
+
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #a7001e;
+  padding-left: 15px;
+}
+
+.left-items {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.right-item {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-left: 15px;
+}
+
+#logo{
+  width: 60px;
+}

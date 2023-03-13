@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 @Component({
   selector: 'app-root',
