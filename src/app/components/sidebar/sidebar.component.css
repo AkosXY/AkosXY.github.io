@@ -1,0 +1,27 @@
+nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: white;
+    margin-right: 50px;
+    margin-bottom: auto;
+    height: 100%;
+    list-style: none;
+    line-height: 60px;
+    width: 400px;
+    border-right: 1px solid grey;
+}
+
+nav li {
+    font-size: 1.5em;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    line-height: 100px;
+}
+
+nav li:hover {
+    background-color: gray;
+}

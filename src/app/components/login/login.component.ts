@@ -18,8 +18,8 @@ export class LoginComponent implements OnInit {
 
   passType: string = "password";
   isText: boolean = false;
-  showIcon: string = "fa-eye-slash";
-  showPadding: string = "pr-0.5";
+  showIcon: string = "fa-eye";
+  showPadding: string = "pr-1";
   email:string = "wasd@wasd.com";
   pass:string = "555555"
 
@@ -62,14 +62,14 @@ export class LoginComponent implements OnInit {
   hideShowPassword(){
     this.isText = !this.isText;
     if(this.isText){
-      this.showIcon = "fa-eye";
+      this.showIcon = "fa-eye-slash";
       this.passType = "text"
-      this.showPadding = "pr-1"
+      this.showPadding = "pr-0.5"
 
     } else{
-      this.showIcon = "fa-eye-slash";
+      this.showIcon = "fa-eye";
       this.passType = "password";
-      this.showPadding = "pr-0.5"
+      this.showPadding = "pr-1"
     }
   }
 

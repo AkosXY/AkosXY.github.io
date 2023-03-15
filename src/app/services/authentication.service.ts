@@ -21,7 +21,7 @@ export class AuthenticationService {
           console.log(idToken);
         })
         onSuccess();
-        this.router.navigate(['/home']);
+        this.router.navigate(['/']);
         this.loginState = true;
         sessionStorage.setItem('loginState', 'true');
         console.log(sessionStorage.getItem('loginState'))

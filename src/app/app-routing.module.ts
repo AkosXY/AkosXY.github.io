@@ -1,11 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { MydevicesComponent } from './components/mydevices/mydevices.component';
+import { NewdeviceComponent } from './components/newdevice/newdevice.component';
+import { PendingComponent } from './components/pending/pending.component';
 
 const routes: Routes = [
     {path:'login', component:LoginComponent},
-    {path:'home', component:HomeComponent}
+    {path:'mydevices', component:MydevicesComponent},
+    {path:'pending', component:PendingComponent},
+    {path:'newdevice', component:NewdeviceComponent},
+    {path:'', component:HomeComponent}
 ];
 
 @NgModule({

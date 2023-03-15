@@ -8,8 +8,9 @@ nav{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #a7001e;
+  background-color: #A7001E;
   padding-left: 15px;
+  height: 90px;
 }
 
 .left-items {
