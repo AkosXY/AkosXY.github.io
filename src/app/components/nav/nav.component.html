@@ -1,10 +1,11 @@
-<nav class="header">
+<nav class="header" (click)="print()">
   <div class="left-items">
     <img id="logo" src="assets/images/labloot_icon.png" alt="">
     <h3><span class="pt-5 fw-bold">LabLoot </span><span class="fst-italic">Admin</span></h3>
   </div>
-  <div class="right-items">
-    <button (click)="logout()"  *ngIf="getLogin() == 'true'" class="btn btn-light mr-5">kijelentkezés</button>
+  <div class="right-items" *ngIf="getLogin() == 'true'">
+    <i class="fa-solid fa-envelope pr-2"></i>
+    <p>{{user}}</p>
   </div>
 
 </nav>

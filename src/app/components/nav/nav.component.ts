@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { from, Subscription, switchMap } from 'rxjs';
 import {AuthenticationService} from "../../services/authentication.service";
 
 @Component({
@@ -13,11 +14,17 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public user = sessionStorage.getItem('loginUser');
+
+
+  print(){
+    console.log(sessionStorage.getItem('loginUser'));
+  }
+
   getLogin():string {
     return this.authService.getLoginState();
   }
-  logout(){
-    this.authService.logout();
-  }
+ 
+
 
 }

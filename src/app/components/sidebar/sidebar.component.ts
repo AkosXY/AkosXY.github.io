@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,7 +12,7 @@ export class SidebarComponent implements OnInit {
   
   sidebarVisible = true;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private authService :AuthenticationService) { }
 
   ngOnInit(): void {
   
@@ -21,12 +22,13 @@ export class SidebarComponent implements OnInit {
     this.sidebarVisible = !this.sidebarVisible;
   }
 
-  isLoggedIn(){
-    return false;
+  navigate(url:string){
+    this.router.navigate([url]);
   }
 
-  navigate(url:string){
-      this.router.navigate([url]);
+  logout(){
+    this.authService.logout();
   }
+  
 
 }

@@ -11,20 +11,24 @@ import {Router} from "@angular/router";
 export class AuthenticationService {
 
   private loginState:boolean = false;
+  private loginUser: string = "";
+  
   constructor(public angularFireAuth: AngularFireAuth,  private router: Router) { }
 
   login(email:string, password:string, onSuccess:any, onError:any){
     this.angularFireAuth.signInWithEmailAndPassword(email,password)
       .then(result =>{
-        console.log(result);
+       // console.log(result);
         result.user?.getIdTokenResult().then(idToken=>{
-          console.log(idToken);
+        //  console.log(idToken);
         })
         onSuccess();
         this.router.navigate(['/']);
         this.loginState = true;
         sessionStorage.setItem('loginState', 'true');
-        console.log(sessionStorage.getItem('loginState'))
+        this.loginUser = email;
+        sessionStorage.setItem('loginUser', email);
+       // console.log(sessionStorage.getItem('loginState'))
       })
       .catch(error => {
         console.log(error);
@@ -38,13 +42,14 @@ export class AuthenticationService {
         this.router.navigate(['/login']);
         this.loginState = false;
         sessionStorage.setItem('loginState', 'false');
-        console.log(sessionStorage.getItem('loginState'))
+        sessionStorage.setItem('loginUser', "");
+       // console.log(sessionStorage.getItem('loginState'))
       })
   }
 
   getLoginState():string{
     //return this.loginState;
-    console.log("session state:"+sessionStorage.getItem('loginState') + "bool value: "+  Boolean(sessionStorage.getItem('loginState')) );
+    //console.log("session state:"+sessionStorage.getItem('loginState') + "bool value: "+  Boolean(sessionStorage.getItem('loginState')) );
     return sessionStorage.getItem('loginState') || 'false';
   }
 

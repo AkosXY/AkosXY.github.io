@@ -43,11 +43,11 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.valid){
       this.authService.login(email,pass,
         ()=>{
-          console.log("success");
+          //console.log("success");
          // this.router.navigate(['/home']);
         },
         ()=>{
-          console.log("failed");
+          //console.log("failed");
         }
         );
     }

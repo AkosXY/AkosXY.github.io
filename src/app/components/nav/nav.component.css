@@ -19,11 +19,17 @@ nav{
   align-items: center;
 }
 
-.right-item {
+.right-items {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  padding-left: 15px;
+  color: white;
+  padding-right: 65px;
+}
+
+.right-items p{
+  margin-bottom: 0;
 }
 
 #logo{
