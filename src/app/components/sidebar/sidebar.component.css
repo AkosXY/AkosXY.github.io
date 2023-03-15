@@ -23,5 +23,28 @@ nav li {
 }
 
 nav li:hover {
-    background-color: gray;
 }
+
+
+.selected{
+    color: white;
+    background-color: #8d011b
+}
+
+
+
+
+.default{
+    background-color: white;
+}
+
+.default:hover{    
+    background-color: rgb(209,209,209);
+
+}
+
+
+nav li > .active{
+    color: aqua;
+    background-color: chartreuse;    
+  }

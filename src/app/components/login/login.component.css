@@ -3,9 +3,13 @@
     align-items: center;
 }
 
+
 .panel-heading img{
     height: 140px;
     padding:10px 20px;
+}
+:host{
+    background-color: red;
 }
 
 

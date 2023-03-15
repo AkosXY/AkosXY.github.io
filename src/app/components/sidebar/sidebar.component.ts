@@ -9,8 +9,12 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class SidebarComponent implements OnInit {
 
+  static devices = "/mydevices";
+  static readonly pending = '/pending';
+  static readonly new = '/newdevice';
   
   sidebarVisible = true;
+  selected = ""
 
   constructor(private router: Router, private authService :AuthenticationService) { }
 
@@ -24,6 +28,7 @@ export class SidebarComponent implements OnInit {
 
   navigate(url:string){
     this.router.navigate([url]);
+    this.selected = url;
   }
 
   logout(){
