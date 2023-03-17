@@ -11,7 +11,7 @@ import { LoginComponent } from './components/login/login.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 
-import { HomeComponent } from './components/home/home/home.component';
+import { HomeComponent } from './components/home/home.component';
 import {AngularFireModule} from "@angular/fire/compat";
 import {AuthenticationService} from "./services/authentication.service";
 import { NavComponent } from './components/nav/nav.component';
@@ -19,6 +19,9 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { PendingComponent } from './components/pending/pending.component';
 import { MydevicesComponent } from './components/mydevices/mydevices.component';
 import { NewdeviceComponent } from './components/newdevice/newdevice.component';
+import { DeviceGridComponent } from './device/device-grid/device-grid.component';
+import { DeviceDetailComponent } from './device/device-detail/device-detail.component';
+import { HttpClientModule  } from '@angular/common/http';
 
 
 
@@ -31,10 +34,13 @@ import { NewdeviceComponent } from './components/newdevice/newdevice.component';
     SidebarComponent,
     PendingComponent,
     MydevicesComponent,
-    NewdeviceComponent
+    NewdeviceComponent,
+    DeviceGridComponent,
+    DeviceDetailComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
     //provideFirebaseApp(() => initializeApp(environment.firebase)),

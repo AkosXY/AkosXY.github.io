@@ -9,9 +9,6 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class SidebarComponent implements OnInit {
 
-  static devices = "/mydevices";
-  static readonly pending = '/pending';
-  static readonly new = '/newdevice';
   
   sidebarVisible = true;
   selected = ""

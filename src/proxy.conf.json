@@ -1,0 +1,6 @@
+{
+    "/": {
+      "target": "https://labloot.azurewebsites.net",
+      "secure": false
+    }
+  }
