@@ -11,3 +11,16 @@ export interface Device {
   statDate: Date,
   dueDate: Date
 }
+
+
+export const NULL_DEVICE: Device = {
+  deviceId: 0,
+  name: "string",
+  inventoryId: "",
+  description: "",
+  userId: "",
+  providerId: "",
+  state: DevicestateEnum.FREE,
+  statDate: new Date,
+  dueDate: new Date
+};

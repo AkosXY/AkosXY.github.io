@@ -1,0 +1,23 @@
+.list{
+    margin-bottom: 20px;
+    height: calc(100vh - 90px - 200px);
+    overflow-y:scroll;
+}
+
+
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+li{
+    font-size: 30px;
+    background-color: white;
+    margin-bottom: 15;
+    list-style: none;
+}
+
+li:hover{
+    cursor: pointer;
+}
