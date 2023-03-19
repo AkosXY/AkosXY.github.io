@@ -1,8 +1,19 @@
+<br>
 <h2>Devices:</h2>
-<br><br>
+<br>
 <div class="list">
 
-  <ul *ngFor="let number of [0,1,2,3,4]">
-    <li *ngFor="let device of mydevices" (click) ="onDeviceSelected(device)">{{ device.name }}</li>
+  <ul *ngFor="let number of [0,1]">
+    <li *ngFor="let device of mydevices" (click) ="onDeviceSelected(device)">
+      <div class="device-card">
+        <div class="text">
+          <p>{{device.name}}</p>
+          <p>{{device.inventoryId}}</p>
+        </div>
+        <!-- <p>igényelve: {{device.startDate ? device.startDate : '-'}}</p> -->
+        <p>{{device.startDate ? '-' : '-'}}</p>
+        <p class="state">{{getDeviceService().getStateString(device.state)}}</p>
+      </div>
+    </li>
   </ul>
 </div>

@@ -8,7 +8,7 @@ export interface Device {
   userId: string,
   providerId: string,
   state: DevicestateEnum,
-  statDate: Date,
+  startDate: Date,
   dueDate: Date
 }
 
@@ -21,6 +21,6 @@ export const NULL_DEVICE: Device = {
   userId: "",
   providerId: "",
   state: DevicestateEnum.FREE,
-  statDate: new Date,
+  startDate: new Date,
   dueDate: new Date
 };

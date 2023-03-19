@@ -1,8 +1,28 @@
 
 
 .main-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: calc(100vw - 850px);
+/*     display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: calc(100vw - 850px); */
+  width: calc(100vw - 500px); 
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 40px;
+  margin-left: 50px;
+  margin-right: 40px;
+}
+
+.left-section {
+  grid-column: 1 / 2;
+  height: calc(100vh - 90px);
+  }
+
+.right-section {
+  grid-column: 2 / 3;
+  height: calc(100vh - 90px);
+}
+
+body{
+  background-color: #E5E5E5;;
 }

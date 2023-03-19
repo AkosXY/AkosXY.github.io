@@ -1,6 +1,8 @@
-
-<div class="main-container">
-    <app-device-grid (deviceSelected)="onDeviceSelected($event)"></app-device-grid>
-    <app-device-detail [device]="selectedDevice"></app-device-detail>
-</div>
-  
+<body>
+    
+    <div class="main-container">
+        <app-device-grid class="left-sectionr" (deviceSelected)="onDeviceSelected($event)"></app-device-grid>
+        <app-device-detail class="right-section" [device]="selectedDevice"></app-device-detail>
+    </div>
+    
+</body>

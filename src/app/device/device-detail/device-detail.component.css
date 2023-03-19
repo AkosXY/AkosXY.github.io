@@ -1,0 +1,24 @@
+span{
+    font-size: larger;
+    color: rgb(85, 85, 85);
+}
+
+.value{
+    font-size: larger;
+    font-weight: bold;
+    color: rgb(50, 50, 50);
+}
+
+h1{
+    font-weight: bold;
+    color: rgb(50, 50, 50);
+}
+
+h3{
+    color: rgb(85, 85, 85);
+
+}
+
+p{
+    margin-bottom: 3px;
+}

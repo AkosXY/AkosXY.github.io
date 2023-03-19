@@ -1,6 +1,6 @@
 .list{
     margin-bottom: 20px;
-    height: calc(100vh - 90px - 200px);
+    height: calc(100vh - 90px - 150px);
     overflow-y:scroll;
 }
 
@@ -12,7 +12,7 @@ ul {
   }
 
 li{
-    font-size: 30px;
+    font-size: 20px;
     background-color: white;
     margin-bottom: 15;
     list-style: none;
@@ -20,4 +20,10 @@ li{
 
 li:hover{
     cursor: pointer;
+}
+
+.device-card{
+    display: flex;
+    flex-direction: row;
+
 }
