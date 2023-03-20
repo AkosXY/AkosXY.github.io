@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { map, Observable } from "rxjs";
+import { Device } from "../interface/device.interface";
 import { DevicestateEnum } from "../interface/devicestate.enum";
 
 @Injectable({
@@ -12,23 +13,30 @@ export class DeviceService{
     private apiUrl = "https://labloot.azurewebsites.net";
     constructor(private http:HttpClient){}
 
-    getDevices(): Observable<any[]> {        
-        return this.http.get<any[]>(this.apiUrl + "/getAllDevices");
+    getDevices(): Observable<Device[]> {        
+        return this.http.get<Device[]>(this.apiUrl + "/getAllDevices");
     }
 
     
-    getStateString(state: DevicestateEnum): string {
-        switch (state) {
+
+    getStateLabel(state: keyof typeof DevicestateEnum){
+        return DevicestateEnum[state];
+    }
+
+    getStateColor(state: keyof typeof DevicestateEnum){
+        switch(DevicestateEnum[state]){
             case DevicestateEnum.FREE:
-            return 'Free';
+                console.log("green")
+            return 'green';
             case DevicestateEnum.REQUESTED:
-            return 'Requested';
-            case DevicestateEnum.IN_USE:
-            return 'In use';
+            return 'yellow';
             case DevicestateEnum.RETURNED:
-            return 'Returned';
+            return 'yellow';
+            case DevicestateEnum.IN_USE:
+            return 'red';
             default:
-            return '';
+            return "";
         }
     }
+
 }

@@ -1,15 +1,20 @@
 <br>
-<h2>Details:</h2>
 <br>
 <div *ngIf="device">
     <h1>{{device.name}}</h1>
     <h3>{{device.description}}</h3>
     <br>
-    <p><span>Leltári szám: </span><span class="value">{{device.deviceId}}</span></p>
+    <p><span>Leltári szám: </span><span class="value">{{device.inventoryId}}</span></p>
     <p><span>Felhasználó: </span><span class="value">{{device.userId}}</span></p>
     <p> <span>igényelve: </span><span class="value">{{device.startDate ? device.startDate : '-'}}</span></p>
     <p><span>igényelve:</span><span class="value">{{device.dueDate ? device.dueDate : '-'}}</span></p>
-    <p class="value"> {{getDeviceService().getStateString(device.state)}}</p>
+
+    <p class="color" [ngClass]="getDeviceService().getStateColor(device.state)"> {{getDeviceService().getStateLabel(device.state)}}</p>
+
+<!-- 
+
+
+ -->
 
 </div>
   

@@ -1,6 +1,6 @@
 export enum DevicestateEnum {
-  FREE,
-  REQUESTED,
-  IN_USE,
-  RETURNED
+  FREE = "Szabad",
+  REQUESTED= "Igényelve",
+  IN_USE= "Használatban",
+  RETURNED= "Leadva"
 }

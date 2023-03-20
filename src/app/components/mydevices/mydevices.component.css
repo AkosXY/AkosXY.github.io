@@ -5,7 +5,7 @@
   flex-direction: row;
   justify-content: space-between;
   width: calc(100vw - 850px); */
-  width: calc(100vw - 500px); 
+  width: calc(100vw - 465px); 
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 40px;
@@ -24,5 +24,7 @@
 }
 
 body{
-  background-color: #E5E5E5;;
+  /* background-color: #E5E5E5; */
+  background-color: white;
+
 }

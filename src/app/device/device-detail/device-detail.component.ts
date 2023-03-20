@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Device, NULL_DEVICE } from 'src/app/interface/device.interface';
+import { DevicestateEnum } from 'src/app/interface/devicestate.enum';
 import { DeviceService } from 'src/app/services/device.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class DeviceDetailComponent implements OnInit {
   @Input() device: Device= NULL_DEVICE;
 
   nulldevice = NULL_DEVICE;
- 
+  public DevicestateEnum = DevicestateEnum;
   constructor(private deviceService: DeviceService) { }
 
   ngOnInit(): void {

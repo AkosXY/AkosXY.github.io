@@ -41,7 +41,7 @@ export class DeviceGridComponent implements OnInit {
     description: "device description",
     userId: "user01",
     providerId: "provider01",
-    state: DevicestateEnum.FREE,
+    state: "FREE",
     startDate: new Date,
     dueDate: new Date
 
@@ -51,13 +51,14 @@ export class DeviceGridComponent implements OnInit {
 
   initDevices(){
     let retDevice:Device[] = [];
-    for(let i = 0; i<10; i++)
+    for(let i = 0; i < 10; i++)
       retDevice.push(this.testDevice)
-      return retDevice;
+    return retDevice;
   }
 
   getDeviceService(){
     return this.deviceService;
   }
+
 
 }

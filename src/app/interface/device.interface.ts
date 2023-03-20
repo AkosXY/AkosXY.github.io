@@ -7,7 +7,7 @@ export interface Device {
   description: string,
   userId: string,
   providerId: string,
-  state: DevicestateEnum,
+  state: keyof typeof DevicestateEnum,
   startDate: Date,
   dueDate: Date
 }
@@ -20,7 +20,7 @@ export const NULL_DEVICE: Device = {
   description: "",
   userId: "",
   providerId: "",
-  state: DevicestateEnum.FREE,
+  state: "FREE",
   startDate: new Date,
   dueDate: new Date
 };

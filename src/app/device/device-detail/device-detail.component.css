@@ -3,11 +3,6 @@ span{
     color: rgb(85, 85, 85);
 }
 
-.value{
-    font-size: larger;
-    font-weight: bold;
-    color: rgb(50, 50, 50);
-}
 
 h1{
     font-weight: bold;
@@ -21,4 +16,21 @@ h3{
 
 p{
     margin-bottom: 3px;
+}
+
+.color{
+    font-size: larger;
+    font-weight: bold;
+}
+
+.green{
+    color: green;
+}
+
+.red{
+    color: red;
+}
+
+.yellow{
+    color: orange;
 }
