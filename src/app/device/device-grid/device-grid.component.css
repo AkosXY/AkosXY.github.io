@@ -1,6 +1,6 @@
 .list{
     margin-bottom: 20px;
-    height: calc(100vh - 90px - 150px);
+    height: calc(100vh - 90px - 100px);
     overflow-y:scroll;
     padding-right: 50px;
 }
@@ -27,9 +27,11 @@ li:hover{
 
 .device-card{
     display: flex;
+    flex-grow: 1;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin: 0px 30px;
     
 }
 
@@ -44,6 +46,16 @@ p{
 
 }
 
+.info{
+    text-align: right;
+}
+
+#date{
+    font-size: 13px;
+    font-weight: 500;
+    color: rgb(50, 50, 50);
+    padding-right: 0px;
+}
 .green{
     font-weight: bold;
     color: green;
@@ -58,3 +70,23 @@ p{
     font-weight: bold;
     color: orange;
 }
+
+
+@media (max-width: 900px) {
+   
+    .list {
+    height: calc(50vh - 0px);
+    }
+    
+  }
+
+  @media (max-height: 700px) and (max-width: 900px) {
+
+    
+    .list {
+        display: none;
+    }
+    
+
+  }
+  

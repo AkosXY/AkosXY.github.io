@@ -5,14 +5,17 @@ nav{
     align-items: center;
     background-color: white;
   /*   margin-right: 50px; */
-     margin-right: 00px;
+     margin-right: 0px;
     margin-bottom: auto;
     height: 100%;
     list-style: none;
     line-height: 60px;
     width: 375px;
     border-right: 1px solid grey;
+
 }
+
+
 
 nav li {
     font-size: 1.5em;
@@ -48,4 +51,14 @@ nav li:hover {
 nav li > .active{
     color: aqua;
     background-color: chartreuse;    
-  }
+}
+
+
+@media (max-width:1200px) {
+    nav {
+      width: 200px;
+    }
+    nav li {
+        font-size: 1em;
+    }
+}

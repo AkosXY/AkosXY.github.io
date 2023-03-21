@@ -16,7 +16,7 @@ export class SidebarComponent implements OnInit {
   constructor(private router: Router, private authService :AuthenticationService) { }
 
   ngOnInit(): void {
-  
+    this.selected = sessionStorage.getItem('selected') || '';
   }
 
   showSideBar(){
@@ -24,8 +24,9 @@ export class SidebarComponent implements OnInit {
   }
 
   navigate(url:string){
-    this.router.navigate([url]);
+    sessionStorage.setItem('selected', url);
     this.selected = url;
+    this.router.navigate([url]);
   }
 
   logout(){

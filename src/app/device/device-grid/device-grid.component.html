@@ -9,8 +9,10 @@
           <p class="name">{{device.name}}</p>
           <p>id: {{device.deviceId}}</p>
         </div>
-        <p>{{device.startDate ? '-' : '-'}}</p>
-        <p [ngClass]="getDeviceService().getStateColor(device.state)"> {{getDeviceService().getStateLabel(device.state)}}</p>
+        <div class="info">
+          <p id="date">{{device.startDate ? (device.startDate|date: 'yyyy-MM-dd') : '-'}}</p>
+          <p [ngClass]="getDeviceService().getStateColor(device.state)"> {{getDeviceService().getStateLabel(device.state)}}</p>
+        </div>
       </div>
     </li>
   </ul>
