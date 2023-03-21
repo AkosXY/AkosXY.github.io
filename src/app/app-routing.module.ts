@@ -11,7 +11,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 const routes: Routes = [
     {path:'login', component:LoginComponent},
     {path:'mydevices', component:MydevicesComponent},
-    {path:'pending', component:PendingComponent},
+    {path:'pending', component:MydevicesComponent},
     {path:'newdevice', component:NewdeviceComponent},
     {path:'', component:HomeComponent}
 ];

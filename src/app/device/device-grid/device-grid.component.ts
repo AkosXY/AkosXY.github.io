@@ -3,6 +3,7 @@ import { Device } from 'src/app/interface/device.interface';
 import { DevicestateEnum } from 'src/app/interface/devicestate.enum';
 import { DeviceService } from 'src/app/services/device.service';
 import { NgxSkeletonLoaderComponent } from 'ngx-skeleton-loader';
+import { RoutingService } from 'src/app/services/routing.service';
 
 @Component({
   selector: 'app-device-grid',
@@ -16,17 +17,12 @@ export class DeviceGridComponent implements OnInit {
  @Output() deviceSelected = new EventEmitter<Device>();
   mydevices: Device[] = [];
   loading = true;
-  totalCount = 10;
-
-  constructor(private deviceService: DeviceService) { }
+  totalCount = 9;
+  constructor(private deviceService: DeviceService, private routing: RoutingService) { }
 
 
   async ngOnInit(): Promise<void> {
-     this.deviceService.getDevices("/getAllDevices").subscribe(device => {
-         this.mydevices = device;
-         this.loading = false;
-         console.log(device)
-     })
+    this.loadDevices()
   }
 
   onDeviceSelected(device: Device) {
@@ -34,9 +30,15 @@ export class DeviceGridComponent implements OnInit {
     this.deviceSelected.emit(device);
   }
 
-/*   sendOutEvent(device:Device){
-      this.selectDevice.emit(device)
-  } */
+  loadDevices(){
+    this.deviceService.getDevices(this.routing.getApi()).subscribe(device => {
+      this.mydevices = device;
+      this.loading = false;
+      console.log(device)
+    })
+  }
+
+  /* Test */
   testDevice:Device = {
     deviceId: 0,
     name: "DeviceName",

@@ -1,6 +1,6 @@
 <nav class="shadow-lg">
-    <li (click)="navigate('/mydevices')"  [ngClass]="{ 'selected': (selected == '/mydevices') , 'default': (selected != '/mydevices') }">Eszközeim</li>
-    <li (click)="navigate('/pending')" [ngClass]="{ 'selected': (selected == '/pending') , 'default': (selected != '/pending') }">Jóváhagyásra vár</li>
-    <li (click)="navigate('/newdevice')" [ngClass]="{ 'selected': (selected == '/newdevice') , 'default': (selected != '/newdevice') }">Új eszköz hozzáadás</li>
+    <li (click)="navigate('/mydevices')"  [ngClass]="{ 'selected': (selected() == '/mydevices') , 'default': (selected() != '/mydevices') }">Eszközeim</li>
+    <li (click)="navigate('/pending')" [ngClass]="{ 'selected': (selected() == '/pending') , 'default': (selected() != '/pending') }">Jóváhagyásra vár</li>
+    <li (click)="navigate('/newdevice')" [ngClass]="{ 'selected': (selected() == '/newdevice') , 'default': (selected() != '/newdevice') }">Új eszköz hozzáadás</li>
     <li (click)="logout()" class="default">Kijelentkezés</li>
 </nav>

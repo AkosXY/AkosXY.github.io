@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { RoutingService } from 'src/app/services/routing.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,12 +12,11 @@ export class SidebarComponent implements OnInit {
 
   
   sidebarVisible = true;
-  selected = ""
 
-  constructor(private router: Router, private authService :AuthenticationService) { }
+  constructor(private authService :AuthenticationService, private routing:RoutingService) { }
 
   ngOnInit(): void {
-    this.selected = sessionStorage.getItem('selected') || '';
+    //this.selected = sessionStorage.getItem('selected') || '';
   }
 
   showSideBar(){
@@ -24,9 +24,11 @@ export class SidebarComponent implements OnInit {
   }
 
   navigate(url:string){
-    sessionStorage.setItem('selected', url);
-    this.selected = url;
-    this.router.navigate([url]);
+   this.routing.navigate(url);
+  }
+  
+  selected():string{
+    return this.routing.getSelected()
   }
 
   logout(){
