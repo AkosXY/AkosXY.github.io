@@ -12,17 +12,20 @@ export class RoutingService{
 
     selected = "";
 
-    constructor(  private router: Router) { }
+    constructor( private router: Router) { }
 
     
     ngOnInit(): void {
         this.selected = sessionStorage.getItem('selected') || '';
+        console.log("loaded")
+        this.router.navigate([this.selected])
     }
     
     
     navigate(url:string){
         sessionStorage.setItem('selected', url);
         this.selected = url;
+        console.log(url)
         this.router.navigate([url]);
     }
 
@@ -31,7 +34,7 @@ export class RoutingService{
     }
 
     getApi(){
-        switch(this.selected){
+        switch(sessionStorage.getItem('selected')){
             case "/mydevices":
             return "/getAllDevices"
             case "/pending":

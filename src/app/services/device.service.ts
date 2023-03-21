@@ -25,7 +25,6 @@ export class DeviceService{
     getStateColor(state: keyof typeof DevicestateEnum){
         switch(DevicestateEnum[state]){
             case DevicestateEnum.FREE:
-                console.log("green")
             return 'green';
             case DevicestateEnum.REQUESTED:
             return 'yellow';
