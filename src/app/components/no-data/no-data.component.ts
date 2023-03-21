@@ -4,7 +4,7 @@ import { Component } from "@angular/core";
 @Component({
     selector:"no-data",
     template:`
-        <p>No Data :(</p>
+        <p>Nincs adat</p>
     `
 })
 export class NoDataComponent{

@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Device } from 'src/app/interface/device.interface';
 import { DevicestateEnum } from 'src/app/interface/devicestate.enum';
 import { DeviceService } from 'src/app/services/device.service';
+import { NgxSkeletonLoaderComponent } from 'ngx-skeleton-loader';
 
 @Component({
   selector: 'app-device-grid',
@@ -14,14 +15,16 @@ export class DeviceGridComponent implements OnInit {
   
  @Output() deviceSelected = new EventEmitter<Device>();
   mydevices: Device[] = [];
-
+  loading = true;
+  totalCount = 10;
 
   constructor(private deviceService: DeviceService) { }
 
 
   async ngOnInit(): Promise<void> {
-     this.deviceService.getDevices().subscribe(device => {
+     this.deviceService.getDevices("/getAllDevices").subscribe(device => {
          this.mydevices = device;
+         this.loading = false;
          console.log(device)
      })
   }

@@ -74,19 +74,27 @@ p{
 
 @media (max-width: 900px) {
    
-    .list {
-    height: calc(50vh - 0px);
-    }
-    
+.list {
+height: calc(50vh - 0px);
+}
+
+}
+
+@media (max-height: 700px) and (max-width: 900px) {
+
+
+.list {
+    display: none;
+}
+
+
+}
+
+.loader{
+    height: 100px;
+}
+
+:host >>> ngx-skeleton-loader .skeleton-loader {
+    border-radius: 10px;
+    height: 60px;
   }
-
-  @media (max-height: 700px) and (max-width: 900px) {
-
-    
-    .list {
-        display: none;
-    }
-    
-
-  }
-  

@@ -22,6 +22,8 @@ import { NewdeviceComponent } from './components/newdevice/newdevice.component';
 import { DeviceGridComponent } from './device/device-grid/device-grid.component';
 import { DeviceDetailComponent } from './device/device-detail/device-detail.component';
 import { HttpClientModule  } from '@angular/common/http';
+import { NoDataComponent } from './components/no-data/no-data.component';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 
 
@@ -36,13 +38,16 @@ import { HttpClientModule  } from '@angular/common/http';
     MydevicesComponent,
     NewdeviceComponent,
     DeviceGridComponent,
-    DeviceDetailComponent
+    DeviceDetailComponent,
+    NoDataComponent
+    
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    NgxSkeletonLoaderModule.forRoot({ animation: 'pulse', loadingText: 'This item is actually loading...'}),
     //provideFirebaseApp(() => initializeApp(environment.firebase)),
     //provideAuth(() => getAuth()),
     AngularFireModule.initializeApp(environment.firebaseConfig)

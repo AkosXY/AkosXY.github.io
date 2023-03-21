@@ -13,11 +13,10 @@ export class DeviceService{
     private apiUrl = "https://labloot.azurewebsites.net";
     constructor(private http:HttpClient){}
 
-    getDevices(): Observable<Device[]> {        
-        return this.http.get<Device[]>(this.apiUrl + "/getAllDevices");
+    getDevices(url: string): Observable<Device[]> {        
+        return this.http.get<Device[]>(this.apiUrl + url);
     }
 
-    
 
     getStateLabel(state: keyof typeof DevicestateEnum){
         return DevicestateEnum[state];
