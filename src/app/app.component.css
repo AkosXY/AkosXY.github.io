@@ -1,6 +1,10 @@
 .sidebar {
     display: flex;
     height: calc(100vh - 90px);
+    min-height: -moz-available;
+    min-height: -webkit-fill-available;
+    min-height: fill-available;
+    /* height: calc(var(--doc-height) - 90px); */
 }
 
 .no-sidebar{
@@ -11,4 +15,9 @@
 body{
     background-color: #E5E5E5;
     height: 100vh;
+    min-height: -moz-available;
+    min-height: -webkit-fill-available;
+    min-height: fill-available;
+    overflow:hidden ;
+   /*  height: var(--doc-height); */
 }

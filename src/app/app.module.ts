@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule} from '@angular/material/button';
+
 
 
 import { environment } from 'src/environments/environment';
@@ -24,6 +29,7 @@ import { DeviceDetailComponent } from './device/device-detail/device-detail.comp
 import { HttpClientModule  } from '@angular/common/http';
 import { NoDataComponent } from './components/no-data/no-data.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { MatCommonModule, MatDividerModule } from '@angular/material';
 
 
 
@@ -40,13 +46,19 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     DeviceGridComponent,
     DeviceDetailComponent,
     NoDataComponent
-    
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatButtonModule,
+    MatDividerModule,
+      
     NgxSkeletonLoaderModule.forRoot({ animation: 'pulse', loadingText: 'This item is actually loading...'}),
     //provideFirebaseApp(() => initializeApp(environment.firebase)),
     //provideAuth(() => getAuth()),

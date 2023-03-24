@@ -4,17 +4,15 @@ nav{
     justify-content: flex-start;
     align-items: center;
     background-color: white;
-  /*   margin-right: 50px; */
-     margin-right: 0px;
+    margin-right: 0px;
     margin-bottom: auto;
     height: 100%;
     list-style: none;
     line-height: 60px;
-    width: 375px;
+    width: 350px;
     border-right: 1px solid grey;
 
 }
-
 
 
 nav li {
@@ -60,5 +58,16 @@ nav li > .active{
     }
     nav li {
         font-size: 1em;
+        line-height: 80px;
     }
 }
+
+
+/* .sidenav{
+    transition: all .5s ease;
+    position: fixed;
+    z-index: 1;
+    width: 5rem;
+    height: 100vh;
+    
+} */

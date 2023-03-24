@@ -10,6 +10,8 @@ export class AppComponent {
   title = 'LabLoot-Angular';
   constructor(private authService :AuthenticationService) { }
 
+  showSidebar!:boolean;
+
   isLoggedIn():boolean{
     let loggedIn = this.authService.getLoginState();
     if(loggedIn == "true"){
@@ -18,6 +20,11 @@ export class AppComponent {
       return false;
     }
   }
+
+  toggleSidebar(value:boolean){
+    this.showSidebar = value
+  }
+
 }
 
 

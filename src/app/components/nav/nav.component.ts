@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { from, Subscription, switchMap } from 'rxjs';
 import {AuthenticationService} from "../../services/authentication.service";
 
@@ -10,6 +10,9 @@ import {AuthenticationService} from "../../services/authentication.service";
 export class NavComponent implements OnInit {
 
   constructor(private authService :AuthenticationService) { }
+
+  @Output() isCollapsed = new EventEmitter<boolean>();
+  isSidebarCollapsed = false;
 
   ngOnInit(): void {
   }
@@ -24,6 +27,13 @@ export class NavComponent implements OnInit {
 
   getUser(){
     return sessionStorage.getItem('loginUser');
+  }
+
+
+
+  toggleSidebar(){
+    this.isSidebarCollapsed = !this.isSidebarCollapsed;
+    this.isCollapsed.emit(this.isSidebarCollapsed);
   }
  
 

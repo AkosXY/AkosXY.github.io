@@ -19,6 +19,13 @@ nav{
   align-items: center;
 }
 
+.left-items i{
+  color: white;
+  font-size: x-large;
+  padding: 20px;
+}
+
+
 .right-items {
   display: flex;
   flex-direction: row;
@@ -35,3 +42,16 @@ nav{
 #logo{
   width: 60px;
 }
+
+
+@media (max-width: 600px) {
+  .right-items p{
+    font-size: small;
+  }
+  h3{
+  font-size: large;
+  }
+
+}
+
+

@@ -36,29 +36,30 @@ p{
 }
 
 @media (max-width: 1000px) {
-
-    
     .container {
-      
+        
     height: calc(50vh - 90px - 200px);
+    }
+    *{
+        line-height: 1;
     }
 
     span{
         font-size: small;
 
     }
-    
+
     h1{
-       font-size: larger;
+        font-size: larger;
     }
-    
+
     h3{
         font-size: large;
-    
-    }
-    
 
-  }
+    }
+
+
+}
 
 
   
