@@ -18,8 +18,7 @@ export class LoginComponent implements OnInit {
 
   passType: string = "password";
   isText: boolean = false;
-  showIcon: string = "fa-eye";
-  showPadding: string = "pr-1";
+  showIcon: string = "fa-eye icon-padding";
   email:string = "wasd@wasd.com";
   pass:string = "555555"
 
@@ -32,7 +31,7 @@ export class LoginComponent implements OnInit {
     passwordForm:this.passwordForm
   })
 
-  constructor( private authService :AuthenticationService, private router: Router) {}
+  constructor( private authService :AuthenticationService) {}
 
 
   login(){
@@ -44,7 +43,6 @@ export class LoginComponent implements OnInit {
       this.authService.login(email,pass,
         ()=>{
           //console.log("success");
-         // this.router.navigate(['/home']);
         },
         ()=>{
           //console.log("failed");
@@ -62,14 +60,12 @@ export class LoginComponent implements OnInit {
   hideShowPassword(){
     this.isText = !this.isText;
     if(this.isText){
-      this.showIcon = "fa-eye-slash";
+      this.showIcon = "fa-eye-slash icon-padding-slash";
       this.passType = "text"
-      this.showPadding = "pr-0.5"
-
+      
     } else{
-      this.showIcon = "fa-eye";
+      this.showIcon = "fa-eye icon-padding";
       this.passType = "password";
-      this.showPadding = "pr-1"
     }
   }
 

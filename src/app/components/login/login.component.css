@@ -55,3 +55,16 @@ button{
     justify-self: center;
 }
 
+.icon-padding-slash{
+    /* padding-right: 11px; */
+    padding-right: 7px;
+    padding-left: 4px;
+}
+
+.icon-padding{
+    /* padding-right: 13px; */
+    
+    padding-right: 8px;
+    padding-left: 5px;
+}
+

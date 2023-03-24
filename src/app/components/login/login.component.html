@@ -22,8 +22,8 @@
                                 <div class="input-password p-2">
                                     <i class="fa-solid fa-key pr-2"></i>
                                     <div class="input-field">
-                                        <input [formControl]="passwordForm" class="input-field-password {{showPadding}}" [type]="passType" name="" id="" type="password" placeholder="jelszó" size="23">
-                                        <i (click)="hideShowPassword()" class="fa-solid {{showIcon}} p-2"></i>
+                                        <input [formControl]="passwordForm" class="input-field-password p-1 " [type]="passType" name="" id="" type="password" placeholder="jelszó" size="23">
+                                        <i (click)="hideShowPassword()" class="fa-solid {{showIcon}} "></i>
                                     </div>
                                 </div>
                                 <button type="button" (click)="login()" [disabled]="loginForm.invalid" class="btn btn-primary mt-5">Bejelentkezés</button>
