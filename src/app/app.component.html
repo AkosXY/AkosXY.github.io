@@ -2,7 +2,7 @@
   <span></span>
   <app-nav (isCollapsed)="toggleSidebar($event)"></app-nav>
   <div [ngClass]="{ 'no-sidebar': !isLoggedIn(), 'sidebar': isLoggedIn()}">
-    <app-sidebar *ngIf="showSidebar && isLoggedIn()" [showSidebar]="showSidebar"></app-sidebar>
+    <app-sidebar *ngIf="isLoggedIn()" [showSidebar]="showSidebar"></app-sidebar>
     <router-outlet></router-outlet>
   </div>
  </body>

@@ -66,4 +66,8 @@
     order: 1;
     
   }
+
+  .main-container{
+    margin-left: 0px;
+  }
 }

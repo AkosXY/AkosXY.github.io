@@ -9,10 +9,17 @@ nav{
     height: 100%;
     list-style: none;
     line-height: 60px;
-    width: 350px;
     border-right: 1px solid grey;
-
 }
+
+.open{
+    width: 350px;
+}
+
+.collapsed{
+    width: 80px;
+}
+
 
 
 nav li {
@@ -24,6 +31,7 @@ nav li {
     line-height: 100px;
 }
 
+
 nav li:hover {
 }
 
@@ -33,6 +41,14 @@ nav li:hover {
     background-color: #8d011b
 }
 
+i{
+    font-style: normal;
+    color: black;
+}
+
+li i .selected{
+    color: white;
+}
 
 
 
@@ -53,14 +69,37 @@ nav li > .active{
 
 
 @media (max-width:1200px) {
-    nav {
-      width: 200px;
+    .open{
+        width: 200px;
     }
+    
+    .collapsed{
+        width: 80px;
+    }
+    
+    
     nav li {
         font-size: 1em;
         line-height: 80px;
     }
 }
+
+@media (max-width:600px) {
+    .open{
+        width: 200px;
+    }
+    
+    .collapsed{
+        width: 45px;
+    }
+    
+    
+    nav li {
+        font-size: 1em;
+        line-height: 60px;
+    }
+}
+
 
 
 /* .sidenav{
