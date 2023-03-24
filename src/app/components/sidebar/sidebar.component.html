@@ -1,14 +1,14 @@
 <nav class="shadow-lg" [ngClass]="{ 'open': showSidebar , 'collapsed': !showSidebar }" >
   <li (click)="navigate('/mydevices')"  [ngClass]="{ 'selected': (selected() == '/mydevices') , 'default': (selected() != '/mydevices') }">
-    <i *ngIf="!showSidebar" class="fa-solid fa-computer" [ngClass]="{ 'selected': (selected() == '/mydevices') }"></i>
+    <i *ngIf="!showSidebar" class="fa-solid fa-computer"></i>
     <i *ngIf="showSidebar">Eszközeim</i>
   </li> 
   <li (click)="navigate('/pending')" [ngClass]="{ 'selected': (selected() == '/pending') , 'default': (selected() != '/pending') }">
-    <i *ngIf="!showSidebar" class="fa-solid fa-clock" [ngClass]="{ 'selected': (selected() == '/pending') }"></i>
+    <i *ngIf="!showSidebar" class="fa-solid fa-clock" ></i>
     <i *ngIf="showSidebar">Jóváhagyásra vár</i>
   </li>
   <li (click)="navigate('/newdevice')" [ngClass]="{ 'selected': (selected() == '/newdevice') , 'default': (selected() != '/newdevice') }">
-    <i *ngIf="!showSidebar"  class="fa-solid fa-square-plus" [ngClass]="{ 'selected': (selected() == '/newdevice') }"></i>
+    <i *ngIf="!showSidebar"  class="fa-solid fa-square-plus"></i>
     <i *ngIf="showSidebar">Új eszköz hozzáadás</i>
   </li>
   <li (click)="logout()" class="default">

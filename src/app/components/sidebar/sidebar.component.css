@@ -41,16 +41,6 @@ nav li:hover {
     background-color: #8d011b
 }
 
-i{
-    font-style: normal;
-    color: black;
-}
-
-li i .selected{
-    color: white;
-}
-
-
 
 .default{
     background-color: white;
@@ -60,7 +50,6 @@ li i .selected{
     background-color: rgb(209,209,209);
 
 }
-
 
 nav li > .active{
     color: aqua;
@@ -99,14 +88,3 @@ nav li > .active{
         line-height: 60px;
     }
 }
-
-
-
-/* .sidenav{
-    transition: all .5s ease;
-    position: fixed;
-    z-index: 1;
-    width: 5rem;
-    height: 100vh;
-    
-} */
