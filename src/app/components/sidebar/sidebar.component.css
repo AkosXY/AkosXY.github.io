@@ -73,7 +73,7 @@ nav li > .active{
     }
 }
 
-@media (max-width:600px) {
+@media (max-width:700px) {
     .open{
         width: 200px;
     }

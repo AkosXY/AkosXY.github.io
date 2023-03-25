@@ -10,11 +10,31 @@ import { DevicestateEnum } from "../interface/devicestate.enum";
 
 export class DeviceService{
     
-    private apiUrl = "https://labloot.azurewebsites.net";
+    private apiUrl = "https://labloot.azurewebsites.net/";
     constructor(private http:HttpClient){}
 
     getDevices(url: string): Observable<Device[]> {        
-        return this.http.get<Device[]>(this.apiUrl + url);
+        return this.http.get<Device[]>(this.apiUrl + url,{
+            observe:"response"
+        }
+        ).pipe(
+            map(items => {
+                console.log(items.status)
+                return items.body || []
+            })
+        )   
+    }   
+
+    postDevice(device: Device){
+        let url = this.apiUrl + "admin/uploadDevice";
+        this.http.post<Device>(url, device,{
+            observe:"response"
+        }).pipe(
+            map(resp => {
+                console.log(resp.status)
+            })
+        )
+        .subscribe()
     }
 
 

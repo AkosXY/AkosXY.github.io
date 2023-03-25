@@ -1,15 +1,15 @@
 import {DevicestateEnum} from "./devicestate.enum";
 
 export interface Device {
-  deviceId: number,
+  deviceId?: number,
   name: string,
   inventoryId: string,
   description: string,
-  userId: string,
+  userId?: string,
   providerId: string,
   state: keyof typeof DevicestateEnum,
-  startDate: Date,
-  dueDate: Date
+  startDate?: Date,
+  dueDate?: Date
 }
 
 
@@ -21,6 +21,6 @@ export const NULL_DEVICE: Device = {
   userId: "",
   providerId: "",
   state: "FREE",
-  startDate: new Date,
+  startDate: new Date(),
   dueDate: new Date
 };

@@ -36,9 +36,9 @@ export class RoutingService{
     getApi(){
         switch(sessionStorage.getItem('selected')){
             case "/mydevices":
-            return "/getAllDevices"
+            return "getAllDevices"
             case "/pending":
-            return "/user/freeDevices"
+            return "user/freeDevices"
             default:
             return ""   
         }
