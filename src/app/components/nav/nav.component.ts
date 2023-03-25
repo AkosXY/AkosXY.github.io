@@ -13,6 +13,10 @@ export class NavComponent implements OnInit {
 
   @Output() isCollapsed = new EventEmitter<boolean>();
   isSidebarCollapsed = false;
+  static expandIcon = "fa-solid fa-angles-down fa-rotate-270 icon-small"
+  static hamburgerIcon = "fa-sharp fa-solid fa-bars"
+  icon = NavComponent.expandIcon;
+
 
   ngOnInit(): void {
   }
@@ -33,6 +37,11 @@ export class NavComponent implements OnInit {
 
   toggleSidebar(){
     this.isSidebarCollapsed = !this.isSidebarCollapsed;
+    if(this.icon == NavComponent.hamburgerIcon){
+      this.icon = NavComponent.expandIcon;
+    } else{
+      this.icon = NavComponent.hamburgerIcon;
+    }
     this.isCollapsed.emit(this.isSidebarCollapsed);
   }
  

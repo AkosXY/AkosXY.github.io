@@ -10,7 +10,7 @@ import { RoutingService } from 'src/app/services/routing.service';
 })
 export class SidebarComponent implements OnInit {
 
-  @Input() showSidebar: Boolean = false;
+  @Input() showSidebar: Boolean = true;
 
 /*   sidebarVisible = true;
   showSidebar = false;

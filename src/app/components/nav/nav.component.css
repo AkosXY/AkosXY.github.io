@@ -19,7 +19,19 @@ nav{
   align-items: center;
 }
 
-.left-items i{
+/* .left-items i{
+  color: white;
+  font-size: x-large;
+  padding: 20px;
+}
+ */
+.icon-style{
+  color: white;
+  font-size: x-large;
+  padding: 19px;
+}
+
+.icon-small{
   color: white;
   font-size: x-large;
   padding: 20px;
