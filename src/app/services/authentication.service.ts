@@ -12,6 +12,7 @@ export class AuthenticationService {
 
   private loginState:boolean = false;
   private loginUser: string = "";
+  private user_id: string = "";
   
   constructor(public angularFireAuth: AngularFireAuth,  private router: Router) { }
 
@@ -20,7 +21,9 @@ export class AuthenticationService {
       .then(result =>{
        // console.log(result);
         result.user?.getIdTokenResult().then(idToken=>{
-        //  console.log(idToken);
+          console.log("user_id: " + idToken.claims['user_id']);
+          this.user_id = idToken.claims['user_id']
+          sessionStorage.setItem('user_id', this.user_id);
         })
         onSuccess();
         this.router.navigate(['/']);
@@ -28,6 +31,7 @@ export class AuthenticationService {
         sessionStorage.setItem('loginState', 'true');
         this.loginUser = email;
         sessionStorage.setItem('loginUser', email);
+
        // console.log(sessionStorage.getItem('loginState'))
       })
       .catch(error => {
@@ -48,11 +52,12 @@ export class AuthenticationService {
   }
 
   getLoginState():string{
-    //return this.loginState;
-    //console.log("session state:"+sessionStorage.getItem('loginState') + "bool value: "+  Boolean(sessionStorage.getItem('loginState')) );
     return sessionStorage.getItem('loginState') || 'false';
   }
 
+  getUserId():string{
+    return sessionStorage.getItem('user_id') || '';
+  }
 
 
 }

@@ -1,8 +1,9 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { map, Observable } from "rxjs";
+import { map, Observable, retry } from "rxjs";
 import { Device } from "../interface/device.interface";
 import { DevicestateEnum } from "../interface/devicestate.enum";
+import { RoutingService } from "./routing.service";
 
 @Injectable({
     providedIn:"root"
@@ -25,16 +26,22 @@ export class DeviceService{
         )   
     }   
 
-    postDevice(device: Device){
+    postDevice(device: Device): Observable<boolean>{
         let url = this.apiUrl + "admin/uploadDevice";
-        this.http.post<Device>(url, device,{
+        return this.http.post<Device>(url, device,{
             observe:"response"
         }).pipe(
             map(resp => {
-                console.log(resp.status)
+                console.log(resp.status);
+                if(resp.status == 200){
+                    alert("Sikeres felvétel");
+                    return true;
+                }else{
+                    alert("Sikertelen felvétel");
+                    return false;
+                }
             })
         )
-        .subscribe()
     }
 
 

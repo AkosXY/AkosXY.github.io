@@ -24,7 +24,6 @@ export class DeviceDetailComponent implements OnInit {
 
   }
 
-  
   getDeviceService(){
     return this.deviceService;
   }

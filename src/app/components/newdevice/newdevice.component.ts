@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Device, NULL_DEVICE } from 'src/app/interface/device.interface';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { DeviceService } from 'src/app/services/device.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { DeviceService } from 'src/app/services/device.service';
 })
 export class NewdeviceComponent implements OnInit {
 
-  constructor(private deviceService: DeviceService) { }
+  constructor(private deviceService: DeviceService, private authService :AuthenticationService) { }
 
   nameForm = new FormControl("",Validators.required);
   InventoryIdForm = new FormControl("",Validators.required);
@@ -37,7 +38,7 @@ export class NewdeviceComponent implements OnInit {
       name: this.nameForm.value ? this.nameForm.value.toString() : "",
       inventoryId: this.InventoryIdForm.value ? this.InventoryIdForm.value.toString() : "",
       description: this.descriptionForm.value ? this.descriptionForm.value.toString() : "",
-      providerId: "notRealProvider",
+      providerId: this.authService.getUserId(),
       deviceId: undefined,
       userId: undefined,
       state: 'FREE',
@@ -45,14 +46,16 @@ export class NewdeviceComponent implements OnInit {
       dueDate: undefined
     };
 
-    this.deviceService.postDevice(device);
-/*     this.device.name = this.nameForm.value? this.nameForm.value.toString():"";
-    this.device.inventoryId = this.InventoryIdForm.value? this.InventoryIdForm.value.toString():"";
-    this.device.description = this.descriptionForm.value? this.descriptionForm.value.toString():"";
-    this.device.providerId = "notRealProvider";
-    this.device.deviceId = null;
-    console.log(this.device);
-    this.deviceService.postDevice(this.device); */
+    this.deviceService.postDevice(device).subscribe((success) => {
+      if(success){
+        this.deviceForm.reset();
+      }
+    });
+
+  }
+
+  getUserId(){
+    return this.authService.getUserId();
   }
 
 }
