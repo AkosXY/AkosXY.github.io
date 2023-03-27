@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { map, Observable, retry } from "rxjs";
 import { Device } from "../interface/device.interface";
 import { DevicestateEnum } from "../interface/devicestate.enum";
+import { AuthenticationService } from "./authentication.service";
 import { RoutingService } from "./routing.service";
 
 @Injectable({
@@ -25,6 +26,19 @@ export class DeviceService{
             })
         )   
     }   
+
+    getPendingDevices(url: string): Observable<Device[]> {        
+        return this.http.get<Device[]>(this.apiUrl + url,{
+            observe:"response"
+        }
+        ).pipe(
+            map(items => {
+                console.log(items.status)
+                return items.body || []
+            })
+        )   
+    }   
+
 
     postDevice(device: Device): Observable<boolean>{
         let url = this.apiUrl + "admin/uploadDevice";

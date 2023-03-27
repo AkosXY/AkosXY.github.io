@@ -21,8 +21,7 @@
             <h1>{{nameForm.value}}</h1>
             <h3>{{descriptionForm.value}}</h3>
             <br>
-            
-            <p><span>Tulajdonos: </span><span class="value">{{getUserId()}}</span></p>
+            <p><span>Tulajdonos: </span><span class="value">{{getUserEmail()}}</span></p>
             <p><span *ngIf="InventoryIdForm.value!=''">Leltári szám: </span><span class="value">{{InventoryIdForm.value}}</span></p>
             <p class="color">Szabad</p>
       </div>

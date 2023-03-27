@@ -6,10 +6,13 @@
     <p><span>Leltári szám: </span><span class="value">{{device.inventoryId}}</span></p>
     <p><span>Felhasználó: </span><span class="value">{{device.userId}}</span></p>
     <p><span>Tulajdonos: </span><span class="value">{{device.providerId}}</span></p>
-    <p> <span>igényelve: </span><span class="value">{{device.startDate ? device.startDate : '-'}}</span></p>
-    <p><span>igényelve:</span><span class="value">{{device.dueDate ? device.dueDate : '-'}}</span></p>
+    <p><span>Igényelve: </span><span class="value">{{device.startDate ? device.startDate : '-'}}</span></p>
+    <p><span>Lejárat:</span><span class="value">{{device.dueDate ? device.dueDate : '-'}}</span></p>
 
     <p class="color" [ngClass]="getDeviceService().getStateColor(device.state)"> {{getDeviceService().getStateLabel(device.state)}}</p>
-
+    <div class="buttons-container">
+        <button class="btn btn-success mt-5">Skyler</button>
+        <button class="btn btn-danger mt-5">Waltuh</button>
+    </div>
 </div>
   

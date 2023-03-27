@@ -32,10 +32,15 @@ export class DeviceGridComponent implements OnInit {
 
   loadDevices(){
     this.deviceService.getDevices(this.routing.getApi()).subscribe(device => {
+      if(this.routing.getSelected() == "/pending"){
+        device = device.filter(filtered =>
+          filtered.state == 'REQUESTED'
+        )
+      }
       this.mydevices = device;
       this.loading = false;
-      console.log(device)
     })
+
   }
 
   /* Test */

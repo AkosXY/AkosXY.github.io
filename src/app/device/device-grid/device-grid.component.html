@@ -1,21 +1,23 @@
-<br>
-<br>
-<div class="list">
-  <!-- <no-data *ngIf="this.mydevices.length < 1"></no-data> -->
-  <ul *ngFor="let number of [0]">
-    <li class="shadow" *ngFor="let device of mydevices" (click) ="onDeviceSelected(device)">
-      <div class="device-card">
-        <div class="text">
-          <p class="name">{{device.name}}</p>
-          <p>id: {{device.inventoryId}}</p>
+<div class="container">
+  <br>
+  <br>
+  <div class="list">
+    <!-- <no-data *ngIf="this.mydevices.length < 1"></no-data> -->
+    <ul *ngFor="let number of [0]">
+      <li class="shadow" *ngFor="let device of mydevices" (click) ="onDeviceSelected(device)">
+        <div class="device-card">
+          <div class="text">
+            <p class="name">{{device.name}}</p>
+            <p>id: {{device.inventoryId}}</p>
+          </div>
+          <div class="info">
+            <p id="date">{{device.startDate ? (device.startDate|date: 'yyyy-MM-dd') : '-'}}</p>
+            <p [ngClass]="getDeviceService().getStateColor(device.state)"> {{getDeviceService().getStateLabel(device.state)}}</p>
+          </div>
         </div>
-        <div class="info">
-          <p id="date">{{device.startDate ? (device.startDate|date: 'yyyy-MM-dd') : '-'}}</p>
-          <p [ngClass]="getDeviceService().getStateColor(device.state)"> {{getDeviceService().getStateLabel(device.state)}}</p>
-        </div>
-      </div>
-    </li>
-  </ul>
-  <ngx-skeleton-loader class="loader" count={{totalCount}} appearance="line" *ngIf="loading"></ngx-skeleton-loader>
+      </li>
+    </ul>
+    <ngx-skeleton-loader class="loader" count={{totalCount}} appearance="line" *ngIf="loading"></ngx-skeleton-loader>
+  </div>
 </div>
 

@@ -14,8 +14,8 @@ export class NewdeviceComponent implements OnInit {
   constructor(private deviceService: DeviceService, private authService :AuthenticationService) { }
 
   nameForm = new FormControl("",Validators.required);
-  InventoryIdForm = new FormControl("",Validators.required);
-  descriptionForm = new FormControl("",Validators.required);
+  InventoryIdForm = new FormControl("");
+  descriptionForm = new FormControl("");
   
   namePlaceholder = "név";
   InventoryIdPlaceholder = "leltárszám";
@@ -38,7 +38,7 @@ export class NewdeviceComponent implements OnInit {
       name: this.nameForm.value ? this.nameForm.value.toString() : "",
       inventoryId: this.InventoryIdForm.value ? this.InventoryIdForm.value.toString() : "",
       description: this.descriptionForm.value ? this.descriptionForm.value.toString() : "",
-      providerId: this.authService.getUserId(),
+      providerId: this.authService.getUserEmail(),
       deviceId: undefined,
       userId: undefined,
       state: 'FREE',
@@ -56,6 +56,10 @@ export class NewdeviceComponent implements OnInit {
 
   getUserId(){
     return this.authService.getUserId();
+  }
+
+  getUserEmail(){
+    return this.authService.getUserEmail();
   }
 
 }

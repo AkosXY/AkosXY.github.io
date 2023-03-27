@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { map, Observable } from "rxjs";
 import { Device } from "../interface/device.interface";
 import { DevicestateEnum } from "../interface/devicestate.enum";
+import { AuthenticationService } from "./authentication.service";
 
 @Injectable({
     providedIn:"root"
@@ -12,7 +13,7 @@ export class RoutingService{
 
     selected = "";
 
-    constructor( private router: Router) { }
+    constructor( private router: Router, private authService:AuthenticationService) { }
 
     
     ngOnInit(): void {
@@ -33,12 +34,13 @@ export class RoutingService{
         return sessionStorage.getItem('selected') || '';
     }
 
+    //let url = this.apiUrl + "admin/uploadDevice" + this.authService.getUserId();
     getApi(){
         switch(sessionStorage.getItem('selected')){
             case "/mydevices":
-            return "getAllDevices"
+            return "admin/myDevices?userId=" + this.authService.getUserEmail();
             case "/pending":
-            return "user/freeDevices"
+            return "admin/myDevices?userId=" + this.authService.getUserEmail();
             default:
             return ""   
         }
