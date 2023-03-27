@@ -22,7 +22,6 @@ export class RoutingService{
         this.router.navigate([this.selected])
     }
     
-    
     navigate(url:string){
         sessionStorage.setItem('selected', url);
         this.selected = url;
@@ -34,6 +33,9 @@ export class RoutingService{
         return sessionStorage.getItem('selected') || '';
     }
 
+
+    //let url = this.apiUrl + "admin/uploadDevice" + this.authService.getUserId();
+    
     //let url = this.apiUrl + "admin/uploadDevice" + this.authService.getUserId();
     getApi(){
         switch(sessionStorage.getItem('selected')){

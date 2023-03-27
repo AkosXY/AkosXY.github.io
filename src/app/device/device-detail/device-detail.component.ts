@@ -27,4 +27,29 @@ export class DeviceDetailComponent implements OnInit {
   getDeviceService(){
     return this.deviceService;
   }
+
+  showStateButtons():boolean{
+      return DevicestateEnum[this.device.state] == DevicestateEnum.REQUESTED;
+  }
+
+  changeDeviceState(device: Device, state:DevicestateEnum){
+    this.deviceService.changeDeviceState(device, state).subscribe((success) => {
+      if(success){
+        
+      }
+    })
+  }
+
+  declineDevice(){
+
+  }
+
+  deleteDevice(device:Device){
+    this.deviceService.deleteDevice(device).subscribe((success) => {
+      if(success){
+        
+      }
+    })
+  }
+
 }

@@ -10,9 +10,15 @@
     <p><span>Lejárat:</span><span class="value">{{device.dueDate ? device.dueDate : '-'}}</span></p>
 
     <p class="color" [ngClass]="getDeviceService().getStateColor(device.state)"> {{getDeviceService().getStateLabel(device.state)}}</p>
-    <div class="buttons-container">
-        <button class="btn btn-success mt-5">Skyler</button>
-        <button class="btn btn-danger mt-5">Waltuh</button>
+    <div>
+        <div class="buttons-container" *ngIf="showStateButtons()">
+            <button class="btn btn-success mt-5" (click)="changeDeviceState(device, DevicestateEnum.FREE)">Skyler</button>
+            <button class="btn btn-warning mt-5" (click)="changeDeviceState(device, DevicestateEnum.IN_USE)">Hank</button>
+        </div>
+        <div class="buttons-container" *ngIf="!showStateButtons()">
+            <button class="btn btn-danger mt-5" (click)="deleteDevice(device)" type="submit">Waltuh</button>
+            <button class="btn btn-secondary mt-5" (click)="changeDeviceState(device, DevicestateEnum.IN_USE)" type="submit">Waltuh</button>
+        </div>
     </div>
 </div>
   
