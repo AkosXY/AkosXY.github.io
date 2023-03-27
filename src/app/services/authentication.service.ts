@@ -19,11 +19,9 @@ export class AuthenticationService {
   login(email:string, password:string, onSuccess:any, onError:any){
     this.angularFireAuth.signInWithEmailAndPassword(email,password)
       .then(result =>{
-       // console.log(result);
-        result.user?.getIdTokenResult().then(idToken=>{
-          console.log("user_id: " + idToken.claims['user_id']);
-          this.user_id = idToken.claims['user_id']
-          sessionStorage.setItem('user_id', this.user_id);
+          result.user?.getIdTokenResult().then(idToken=>{
+            this.user_id = idToken.claims['user_id']
+            sessionStorage.setItem('user_id', this.user_id);
         })
         onSuccess();
         this.router.navigate(['/']);
@@ -57,6 +55,11 @@ export class AuthenticationService {
 
   getUserId():string{
     return sessionStorage.getItem('user_id') || '';
+  }
+
+  getUserEmail(){
+    return sessionStorage.getItem('loginUser') || '';
+
   }
 
 
