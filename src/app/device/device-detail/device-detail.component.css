@@ -5,6 +5,8 @@
     justify-content: flex-start;
     flex-direction: column;
     padding: 0;
+    margin-left: 0px;
+    z-index: 900;
 }
 
 span{
@@ -49,16 +51,24 @@ p{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 1em;
+    height: fit-content;
     width: fit-content;
-    gap: 3em;
+    gap: 1em;
 }
 
-@media (max-width: 1000px) {
-    .container {
-        
-    height: calc(50vh - 90px - 200px);
+@media (max-height: 800px) and (max-width: 900px) {
+    .optional{
+        display: none;
     }
+    
+}
+
+@media (max-width: 900px) {
+    .container {
+        height: calc(50vh - 90px - 200px);
+        margin-left: 10px;
+    }
+
     *{
         line-height: 1;
     }
@@ -78,6 +88,18 @@ p{
 
     }
 
+    .green{
+        font-size: small;
+    }
+    
+    .red{
+        font-size:  small;
+    }
+    
+    .yellow{
+        font-size:  small;
+
+    }
 
 }
 

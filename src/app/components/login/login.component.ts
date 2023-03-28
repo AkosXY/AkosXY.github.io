@@ -38,7 +38,6 @@ export class LoginComponent implements OnInit {
     let email:string = this.emailForm.value ? this.emailForm.value.toString() : "";
     let pass:string = this.passwordForm.value ? this.passwordForm.value.toString() : "";
 
-    console.log(this.loginForm.value);
     if(this.loginForm.valid){
       this.authService.login(email,pass,
         ()=>{
@@ -51,10 +50,8 @@ export class LoginComponent implements OnInit {
     }
   }
 
-
   ngOnInit(): void {
   }
-
 
 
   hideShowPassword(){

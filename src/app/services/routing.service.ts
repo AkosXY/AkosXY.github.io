@@ -11,13 +11,12 @@ import { AuthenticationService } from "./authentication.service";
 
 export class RoutingService{
 
-    selected = "";
+    selected = "/";
 
     constructor( private router: Router, private authService:AuthenticationService) { }
-
     
     ngOnInit(): void {
-        this.selected = sessionStorage.getItem('selected') || '';
+        this.selected = sessionStorage.getItem('selected') || '/';
         console.log("loaded")
         this.router.navigate([this.selected])
     }
@@ -33,10 +32,6 @@ export class RoutingService{
         return sessionStorage.getItem('selected') || '';
     }
 
-
-    //let url = this.apiUrl + "admin/uploadDevice" + this.authService.getUserId();
-    
-    //let url = this.apiUrl + "admin/uploadDevice" + this.authService.getUserId();
     getApi(){
         switch(sessionStorage.getItem('selected')){
             case "/mydevices":

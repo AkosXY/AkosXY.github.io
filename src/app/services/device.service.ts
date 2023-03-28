@@ -83,24 +83,6 @@ export class DeviceService{
         )
     }
 
-/*     declineDevice(device: Device): Observable<boolean>{
-        let url = this.apiUrl + "admin/deleteDevice";
-        return this.http.post<Device>(url, device,{
-            observe:"response"
-        }).pipe(
-            map(resp => {
-                console.log(resp.status);
-                if(resp.status == 200){
-                    alert("Sikeres törlés");
-                    return true;
-                }else{
-                    alert("Sikertelen törlés");
-                    return false;
-                }
-            })
-        )
-    } */
-
 
     getStateLabel(state: keyof typeof DevicestateEnum){
         return DevicestateEnum[state];

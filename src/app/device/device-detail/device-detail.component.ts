@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Device, NULL_DEVICE } from 'src/app/interface/device.interface';
 import { DevicestateEnum } from 'src/app/interface/devicestate.enum';
 import { DeviceService } from 'src/app/services/device.service';
+import { RoutingService } from 'src/app/services/routing.service';
 
 @Component({
   selector: 'app-device-detail',
@@ -14,7 +15,7 @@ export class DeviceDetailComponent implements OnInit {
 
   nulldevice = NULL_DEVICE;
   public DevicestateEnum = DevicestateEnum;
-  constructor(private deviceService: DeviceService) { }
+  constructor(private deviceService: DeviceService,private router: RoutingService) { }
 
   ngOnInit(): void {
   }
@@ -47,7 +48,8 @@ export class DeviceDetailComponent implements OnInit {
   deleteDevice(device:Device){
     this.deviceService.deleteDevice(device).subscribe((success) => {
       if(success){
-        
+        this.ngOnInit();
+        window.location.reload();
       }
     })
   }

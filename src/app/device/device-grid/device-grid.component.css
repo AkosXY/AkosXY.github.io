@@ -1,3 +1,12 @@
+/* .container{
+    width: 80%;
+}
+ */
+
+ .container{
+    padding-left: 0px;
+ }
+
 .list{
     margin-bottom: 20px;
     height: calc(100vh - 90px - 100px);
@@ -7,8 +16,9 @@
 /*     width: fit-content; */
     overflow-y:scroll;
     padding-right: 50px;
+    padding-left: 0px;
 
-    width: calc(50vh - 150px);
+    /* width: calc(50vh - 150px); */
     min-width: -moz-available;
     min-width: -webkit-fill-available;
     min-width: fill-available;
@@ -20,6 +30,8 @@ ul {
     justify-content: center;
     flex-direction: column;
     gap: 25px;
+    padding-left: 0px;
+    margin-right: 0px;
   }
 
 li{
@@ -80,6 +92,24 @@ p{
     color: orange;
 }
 
+.too-small{
+    display: none;
+    font-size: larger;
+}
+
+
+@media (max-width: 1200px) {
+   
+    .container{
+        padding-left: 15px;
+    }
+    .list{
+         padding-right: 15px;
+
+     }
+    
+}
+    
 
 @media (max-width: 900px) {
    
@@ -95,10 +125,33 @@ p{
 
 .list {
     height: 200px;
+
+}
+ul{
+    position: absolute;
+    padding-top: 80px;
+    height: 250px;
+    width: 80%;
+    bottom: 0;
+    color: blue;
+    overflow-y: scroll;
 }
 
 }
+@media (max-height: 450px) and (max-width: 900px) {
 
+    .list {
+        height: 200px;
+    
+    }
+    ul{
+        display: none;
+    } 
+    .too-small{
+        display: contents;
+    }
+}
+    
 
 @media (max-width: 700px) {
     p{
@@ -118,11 +171,22 @@ p{
 
     ul {
         gap: 5px;
-      }
+    }
+
+    .green{
+        font-size: x-small;
+    }
+    
+    .red{
+        font-size:  x-small;
+    }
+    
+    .yellow{
+        font-size:  x-small;
+
+    }
     
 }
-
-
 
 .loader{
     height: 100px;

@@ -30,7 +30,6 @@ export class AuthenticationService {
         this.loginUser = email;
         sessionStorage.setItem('loginUser', email);
 
-       // console.log(sessionStorage.getItem('loginState'))
       })
       .catch(error => {
         console.log(error);
@@ -45,7 +44,7 @@ export class AuthenticationService {
         this.loginState = false;
         sessionStorage.setItem('loginState', 'false');
         sessionStorage.setItem('loginUser', "");
-       // console.log(sessionStorage.getItem('loginState'))
+        sessionStorage.setItem('selected', "");
       })
   }
 
@@ -61,6 +60,5 @@ export class AuthenticationService {
     return sessionStorage.getItem('loginUser') || '';
 
   }
-
 
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AngularFireAuth} from "@angular/fire/compat/auth";
-import { Router } from '@angular/router';
+import { RoutingService } from 'src/app/services/routing.service';
 import {AuthenticationService} from "../../services/authentication.service";
 
 @Component({
@@ -10,7 +9,7 @@ import {AuthenticationService} from "../../services/authentication.service";
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private authService :AuthenticationService, private router:Router) { }
+  constructor(private authService :AuthenticationService, private router:RoutingService) { }
 
   ngOnInit(): void {
   }
@@ -20,7 +19,7 @@ export class HomeComponent implements OnInit {
   }
 
   loginPage(){
-    this.router.navigate(['/login']);
+    this.router.navigate('/login');
   }
 
   getLogin():string {
