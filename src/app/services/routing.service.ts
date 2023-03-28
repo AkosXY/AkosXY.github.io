@@ -35,9 +35,9 @@ export class RoutingService{
     getApi(){
         switch(sessionStorage.getItem('selected')){
             case "/mydevices":
-            return "admin/myDevices?userId=" + this.authService.getUserEmail();
+            return "admin/myDevices?providerId=" + this.authService.getUserEmail();
             case "/pending":
-            return "admin/myDevices?userId=" + this.authService.getUserEmail();
+            return "admin/myDevices?providerId=" + this.authService.getUserEmail();
             default:
             return ""   
         }

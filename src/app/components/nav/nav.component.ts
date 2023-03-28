@@ -21,10 +21,6 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  print(){
-    console.log(sessionStorage.getItem('loginUser'));
-  }
-
   getLogin():string {
     return this.authService.getLoginState();
   }

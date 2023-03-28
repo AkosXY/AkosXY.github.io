@@ -65,8 +65,14 @@ export class DeviceService{
 
     changeDeviceState(device: Device, state:DevicestateEnum): Observable<boolean>{
         let url = this.apiUrl + "admin/updateDevice";
+        if(state == DevicestateEnum.FREE){
+            device.userId = "";
+            device.startDate = undefined;
+            device.dueDate = undefined;
+        } 
+        
         device.state = getKeyByValue(state)
-
+        console.log(device)
         return this.http.post<Device>(url, device,{
             observe:"response"
         }).pipe(

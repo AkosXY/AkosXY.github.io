@@ -7,8 +7,8 @@
         <p><span>Leltári szám:  </span><span class="value">{{device.inventoryId}}</span></p>
         <p><span>Felhasználó:   </span><span class="value">{{device.userId}}</span></p>
         <p><span>Tulajdonos:    </span><span class="value">{{device.providerId}}</span></p>
-        <p><span>Igényelve:     </span><span class="value">{{device.startDate ? device.startDate : '-'}}</span></p>
-        <p><span>Lejárat:       </span><span class="value">{{device.dueDate ? device.dueDate : '-'}}</span></p>
+        <p><span>Igényelve:     </span><span class="value">{{device.startDate ? (device.startDate|date: 'yyyy-MM-dd') : '-'}}</span></p>
+        <p><span>Lejárat:       </span><span class="value">{{device.dueDate ? (device.dueDate|date: 'yyyy-MM-dd') : '-'}}</span></p>
     </div>
 
     <p class="color" [ngClass]="getDeviceService().getStateColor(device.state)"> {{getDeviceService().getStateLabel(device.state)}}</p>
