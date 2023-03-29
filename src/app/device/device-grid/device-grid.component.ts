@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Device } from 'src/app/interface/device.interface';
+import { Device, NULL_DEVICE } from 'src/app/interface/device.interface';
 import { DevicestateEnum } from 'src/app/interface/devicestate.enum';
 import { DeviceService } from 'src/app/services/device.service';
 import { NgxSkeletonLoaderComponent } from 'ngx-skeleton-loader';
@@ -20,6 +20,8 @@ export class DeviceGridComponent implements OnInit {
   totalCount = 9;
   constructor(private deviceService: DeviceService, private routing: RoutingService) { }
 
+  selectedDevice = NULL_DEVICE;
+
 
   async ngOnInit(): Promise<void> {
     this.loadDevices()
@@ -27,6 +29,7 @@ export class DeviceGridComponent implements OnInit {
 
   onDeviceSelected(device: Device) {
     console.log(device)
+    this.selectedDevice = device;
     this.deviceSelected.emit(device);
   }
 
@@ -41,6 +44,14 @@ export class DeviceGridComponent implements OnInit {
       this.loading = false;
     })
 
+  }
+
+  isDeviceSeleced(device:Device){
+    if (device == this.selectedDevice){
+      return true;
+    } else{
+      return false;
+    }
   }
 
   /* Test */
