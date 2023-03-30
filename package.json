@@ -23,6 +23,7 @@
     "@angular/router": "^14.1.0",
     "@ngneat/hot-toast": "^4.1.0",
     "@ngneat/overview": "^3.0.0",
+    "@techiediaries/ngx-qrcode": "^9.1.0",
     "firebase": "^9.17.2",
     "http-proxy-middleware": "^2.0.6",
     "ngx-skeleton-loader": "^6.0.0",

@@ -13,8 +13,6 @@ import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-import { provideAuth,getAuth } from '@angular/fire/auth';
 
 import { HomeComponent } from './components/home/home.component';
 import {AngularFireModule} from "@angular/fire/compat";
@@ -30,7 +28,7 @@ import { HttpClientModule  } from '@angular/common/http';
 import { NoDataComponent } from './components/no-data/no-data.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { MatCommonModule, MatDividerModule } from '@angular/material';
-
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
 
 @NgModule({
@@ -58,6 +56,7 @@ import { MatCommonModule, MatDividerModule } from '@angular/material';
     MatListModule,
     MatButtonModule,
     MatDividerModule,
+    NgxQRCodeModule,
       
     NgxSkeletonLoaderModule.forRoot({ animation: 'pulse', loadingText: 'This item is actually loading...'}),
     //provideFirebaseApp(() => initializeApp(environment.firebase)),

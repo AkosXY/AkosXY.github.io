@@ -15,6 +15,10 @@ export class DeviceDetailComponent implements OnInit {
 
   nulldevice = NULL_DEVICE;
   public DevicestateEnum = DevicestateEnum;
+  title = 'app';
+  elementType = 'url';
+  value = 'this is the value';
+
   constructor(private deviceService: DeviceService,private router: RoutingService) { }
 
   ngOnInit(): void {
@@ -28,7 +32,15 @@ export class DeviceDetailComponent implements OnInit {
   getDeviceService(){
     return this.deviceService;
   }
+  
+  getInventoryId(device:Device){
+    return device.inventoryId ? device.inventoryId : "nem";
+  }
 
+  getQrVisible(){
+    return this.device.inventoryId ? true : false;
+  }
+  
   showStateButtons():boolean{
       return DevicestateEnum[this.device.state] == DevicestateEnum.REQUESTED;
   }
@@ -39,10 +51,6 @@ export class DeviceDetailComponent implements OnInit {
         
       }
     })
-  }
-
-  declineDevice(){
-
   }
 
   deleteDevice(device:Device){

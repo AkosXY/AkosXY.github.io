@@ -1,21 +1,34 @@
 
 <div class="container" *ngIf="device">
     <h1>{{device.name}}</h1>
-    <div class="optional">
-        <h3>{{device.description}}</h3>
-        <br>
-        <p><span>Leltári szám:  </span><span class="value">{{device.inventoryId}}</span></p>
-        <p><span>Felhasználó:   </span><span class="value">{{device.userId}}</span></p>
-        <p><span>Tulajdonos:    </span><span class="value">{{device.providerId}}</span></p>
-        <p><span>Igényelve:     </span><span class="value">{{device.startDate ? (device.startDate|date: 'yyyy-MM-dd') : '-'}}</span></p>
-        <p><span>Lejárat:       </span><span class="value">{{device.dueDate ? (device.dueDate|date: 'yyyy-MM-dd') : '-'}}</span></p>
-    </div>
+        <div class="optional">
+            <h3>{{device.description}}</h3>
+            <br>
+            <div class="data-container">
+                <div class="text">
+                    <p><span>Leltári szám:  </span><span class="value">{{device.inventoryId}}</span></p>
+                    <p><span>Felhasználó:   </span><span class="value">{{device.userId}}</span></p>
+                    <p><span>Tulajdonos:    </span><span class="value">{{device.providerId}}</span></p>
+                    <p><span>Igényelve:     </span><span class="value">{{device.startDate ? (device.startDate|date: 'yyyy-MM-dd') : '-'}}</span></p>
+                    <p><span>Lejárat:       </span><span class="value">{{device.dueDate ? (device.dueDate|date: 'yyyy-MM-dd') : '-'}}</span></p>
+                </div>
+                <ngx-qrcode *ngIf="getQrVisible()"
+                    value  = {{getInventoryId(device)}}
+                    qrc-element-type = img
+                    qrc-class = "qrcode"
+                    [width] = 160
+                    >
+                    
+                </ngx-qrcode>
+            </div>
+        </div>
 
     <p class="color" [ngClass]="getDeviceService().getStateColor(device.state)"> {{getDeviceService().getStateLabel(device.state)}}</p>
     <div class="buttons-container" >
-            <button class="btn btn-success mt-1" (click)="changeDeviceState(device, DevicestateEnum.IN_USE)">Elfogad</button>
+            <button class="btn btn-primary mt-1" (click)="changeDeviceState(device, DevicestateEnum.IN_USE)">Elfogad</button>
             <button class="btn btn-warning mt-1" (click)="changeDeviceState(device, DevicestateEnum.FREE)">Felszabadít</button>
-
+       
+            <!-- <button class="btn btn-warning mt-1" (click)="changeDeviceState(device)">Felszabadít</button>  TODO-->
             <button class="btn btn-danger mt-1" (click)="deleteDevice(device)" type="submit">Törlés</button>
             <button class="btn btn-secondary mt-1" (click)="changeDeviceState(device, DevicestateEnum.REQUESTED)" type="submit">REQUESTED</button>
     </div>

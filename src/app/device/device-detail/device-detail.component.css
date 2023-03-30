@@ -56,6 +56,24 @@ p{
     gap: 1em;
 }
 
+.data-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.qrcode > img {
+    width: 1800px;
+}
+
+img{
+    width: 200px;
+}
+.qr-size{
+    width: 180px;
+}
+  
+
 @media (max-height: 800px) and (max-width: 900px) {
     .optional{
         display: none;
@@ -100,6 +118,7 @@ p{
         font-size:  small;
 
     }
+
 
 }
 
