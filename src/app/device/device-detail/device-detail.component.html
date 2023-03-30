@@ -6,20 +6,24 @@
             <br>
             <div class="data-container">
                 <div class="text">
-                    <p><span>Leltári szám:  </span><span class="value">{{device.inventoryId}}</span></p>
+                    <p><span>Leltári szám2:  </span><span class="value">{{device.inventoryId}}</span></p>
                     <p><span>Felhasználó:   </span><span class="value">{{device.userId}}</span></p>
                     <p><span>Tulajdonos:    </span><span class="value">{{device.providerId}}</span></p>
                     <p><span>Igényelve:     </span><span class="value">{{device.startDate ? (device.startDate|date: 'yyyy-MM-dd') : '-'}}</span></p>
                     <p><span>Lejárat:       </span><span class="value">{{device.dueDate ? (device.dueDate|date: 'yyyy-MM-dd') : '-'}}</span></p>
                 </div>
-                <ngx-qrcode *ngIf="getQrVisible()"
-                    value  = {{getInventoryId(device)}}
-                    qrc-element-type = img
-                    qrc-class = "qrcode"
-                    [width] = 160
-                    >
-                    
-                </ngx-qrcode>
+                <div class="qr-container">
+                    <ngx-qrcode
+                        value  = {{getDeviceId(device)}}
+                        qrc-element-type = img
+                        qrc-class = "qrcode"
+                        cssClass="qrcode"
+                        [width] = 160
+                        >
+                    </ngx-qrcode>
+                    <span class="download-link" title="Save QR code as png" (click)="downloadQRCode()"><i class="fa-solid fa-download"></i> .png</span>
+                    <!-- <button class="btn btn-primary mt-1" (click)="downloadQRCode()">Download</button> -->
+                </div>
             </div>
         </div>
 

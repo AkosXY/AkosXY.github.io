@@ -62,6 +62,31 @@ p{
     justify-content: space-between;
 }
 
+.qr-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.qr-container button{
+
+    width: fit-content;    
+}
+
+.download-link{
+    color: #277dfb;
+    font-size: medium;
+}
+
+.download-link:hover{
+    color: #1858b0;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
 .qrcode > img {
     width: 1800px;
 }

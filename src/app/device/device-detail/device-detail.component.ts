@@ -33,14 +33,11 @@ export class DeviceDetailComponent implements OnInit {
     return this.deviceService;
   }
   
-  getInventoryId(device:Device){
-    return device.inventoryId ? device.inventoryId : "nem";
+  getDeviceId(device:Device){
+    return device.deviceId;
   }
 
-  getQrVisible(){
-    return this.device.inventoryId ? true : false;
-  }
-  
+
   showStateButtons():boolean{
       return DevicestateEnum[this.device.state] == DevicestateEnum.REQUESTED;
   }
@@ -62,4 +59,25 @@ export class DeviceDetailComponent implements OnInit {
     })
   }
 
+  async downloadQRCode() {
+    const fileName = 'image_qrcode.png';
+    const qrcodeImg = document.querySelector('.qrcode img') as HTMLImageElement;
+    const blob = await this.fetchImage(qrcodeImg.src);
+    this.downloadImage(blob, fileName);
+  }
+  
+  async fetchImage(url: string): Promise<Blob> {
+    const response = await fetch(url);
+    const blob = await response.blob();
+    return blob;
+  }
+  
+  downloadImage(blob: Blob, fileName: string) {
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = fileName;
+    link.click();
+  }
+  
+  
 }
