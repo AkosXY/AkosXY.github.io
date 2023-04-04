@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Device, NULL_DEVICE } from 'src/app/interface/device.interface';
-import { DevicestateEnum } from 'src/app/interface/devicestate.enum';
+import { DevicestateEnum, getKeyByValue } from 'src/app/interface/devicestate.enum';
 import { DeviceService } from 'src/app/services/device.service';
 import { RoutingService } from 'src/app/services/routing.service';
 
@@ -50,6 +50,22 @@ export class DeviceDetailComponent implements OnInit {
     })
   }
 
+  approveDeviceState(device: Device){
+    let nextState = DevicestateEnum[device.state];
+    if(device.state == getKeyByValue(DevicestateEnum.REQUESTED)){
+      nextState = DevicestateEnum.IN_USE;
+    } else if (device.state == getKeyByValue(DevicestateEnum.RETURNED)){
+      nextState = DevicestateEnum.FREE;
+    }
+
+    this.deviceService.changeDeviceState(device, nextState).subscribe((success) => {
+      if(success){
+        
+      }
+    })
+  }
+
+
   deleteDevice(device:Device){
     this.deviceService.deleteDevice(device).subscribe((success) => {
       if(success){
@@ -59,8 +75,8 @@ export class DeviceDetailComponent implements OnInit {
     })
   }
 
-  async downloadQRCode() {
-    const fileName = 'image_qrcode.png';
+  async downloadQRCode(name:string) {
+    const fileName = name + '_qrcode.png';
     const qrcodeImg = document.querySelector('.qrcode img') as HTMLImageElement;
     const blob = await this.fetchImage(qrcodeImg.src);
     this.downloadImage(blob, fileName);
