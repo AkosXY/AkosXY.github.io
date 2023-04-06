@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -29,6 +29,8 @@ import { NoDataComponent } from './components/no-data/no-data.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { MatCommonModule, MatDividerModule } from '@angular/material';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FilterPipe } from './interface/filter';
 
 
 @NgModule({
@@ -43,7 +45,8 @@ import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
     NewdeviceComponent,
     DeviceGridComponent,
     DeviceDetailComponent,
-    NoDataComponent
+    NoDataComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -57,6 +60,8 @@ import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
     MatButtonModule,
     MatDividerModule,
     NgxQRCodeModule,
+    Ng2SearchPipeModule,
+    FormsModule,
       
     NgxSkeletonLoaderModule.forRoot({ animation: 'pulse', loadingText: 'This item is actually loading...'}),
     //provideFirebaseApp(() => initializeApp(environment.firebase)),

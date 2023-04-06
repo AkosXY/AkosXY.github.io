@@ -2,10 +2,24 @@
   <br>
   <br>
   <p class="too-small">window too small</p>
+  <div  class="input-container p-3">
+<!--     <div class="input-email p-2">
+        <input [formControl]="searchForm" class="input-field pt-1 pb-1 pr-1" type="text" name="" id="" type="email" placeholder="search" size="29">
+    </div> -->
+    <div class="input-email p-2">
+      <input [(ngModel)]="searchTerm" class="input-field pt-1 pb-1 pr-1" type="text" name="" id="" type="email" placeholder="search" size="29">
+  </div>
+
+
+    <div>
+      {{searchForm.value}}
+    </div>
+
+</div>
   <div class="list">
     <!-- <no-data *ngIf="this.mydevices.length < 1"></no-data> -->
     <ul *ngFor="let number of [0]">
-      <li class="shadow" *ngFor="let device of mydevices" (click) ="onDeviceSelected(device)" [ngClass]="{ 'selected': isDeviceSeleced(device) }">
+      <li class="shadow" *ngFor="let device of mydevices | filter:searchTerm.toString() : this.selectedDevice" (click) ="onDeviceSelected(device)" [ngClass]="{ 'selected': isDeviceSeleced(device) }">
         <div class="device-card" >
           <div class="text">
             <p class="name" [ngClass]="{ 'name-selected': isDeviceSeleced(device) }">{{device.name}}</p>

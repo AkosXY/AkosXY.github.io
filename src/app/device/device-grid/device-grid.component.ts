@@ -4,6 +4,9 @@ import { DevicestateEnum } from 'src/app/interface/devicestate.enum';
 import { DeviceService } from 'src/app/services/device.service';
 import { NgxSkeletonLoaderComponent } from 'ngx-skeleton-loader';
 import { RoutingService } from 'src/app/services/routing.service';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { Subject, debounceTime, map } from 'rxjs';
 
 @Component({
   selector: 'app-device-grid',
@@ -18,7 +21,11 @@ export class DeviceGridComponent implements OnInit {
   mydevices: Device[] = [];
   loading = true;
   totalCount = 9;
-  constructor(private deviceService: DeviceService, private routing: RoutingService) { }
+
+  searchForm = new FormControl("");
+  searchTerm = "";
+
+  constructor(private deviceService: DeviceService, private routing: RoutingService) {}
 
   selectedDevice = NULL_DEVICE;
 
