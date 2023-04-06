@@ -20,8 +20,6 @@ nav{
     width: 80px;
 }
 
-
-
 nav li {
     font-size: 1.5em;
     font-weight: 600;
@@ -31,7 +29,6 @@ nav li {
     line-height: 100px;
 }
 
-
 nav li:hover {
 }
 
@@ -40,7 +37,6 @@ nav li:hover {
     color: white;
     background-color: #8d011b
 }
-
 
 .default{
     background-color: white;
@@ -66,7 +62,6 @@ nav li > .active{
         width: 80px;
     }
     
-    
     nav li {
         font-size: 1em;
         line-height: 80px;
@@ -81,7 +76,6 @@ nav li > .active{
     .collapsed{
         width: 45px;
     }
-    
     
     nav li {
         font-size: 1em;

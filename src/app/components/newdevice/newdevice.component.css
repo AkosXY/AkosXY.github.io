@@ -1,9 +1,9 @@
 .main-container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     align-items: flex-start;
 
-    padding-left: 20px;
+    padding-left: 0px;
     margin-right: 40px; 
     background-color: white;
 
@@ -17,7 +17,7 @@
     min-width: -webkit-fill-available;
     min-width: fill-available;
     overflow: hidden;
-  }
+}
   
 
 .input-field{
@@ -33,4 +33,27 @@
     color: green;
 }
 
+h4{
+    margin-top: 25px;
+    margin-left: 25px;
+}
 
+.detail-container{
+    padding-left: 35px;
+}
+
+input{
+    width: 400px;
+}
+
+textarea{
+    width: 400px;
+}
+
+@media (max-width: 700px) {
+    .right-section {
+        display: none;
+
+    }
+
+}

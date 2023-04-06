@@ -73,11 +73,6 @@ p{
     cursor: pointer;
 }
 
-.qr-container button{
-
-    width: fit-content;    
-}
-
 .download-link{
     color: #277dfb;
     font-size: medium;
@@ -88,7 +83,6 @@ p{
     text-decoration: underline;
     cursor: pointer;
 }
-
 
 .qrcode > img {
     width: 1800px;

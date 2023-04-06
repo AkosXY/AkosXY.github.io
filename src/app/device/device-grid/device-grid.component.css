@@ -1,7 +1,3 @@
-/* .container{
-    width: 80%;
-}
- */
 
  .container{
     padding-left: 0px;
@@ -9,14 +5,14 @@
 
 .list{
     margin-bottom: 20px;
-    height: calc(100vh - 90px - 100px);
+    height: calc(100vh - 90px - 155px);
     min-height: -moz-available;
     min-height: -webkit-fill-available;
     min-height: fill-available;
 /*     width: fit-content; */
     overflow-y:scroll;
     padding-right: 50px;
-    padding-left: 0px;
+    padding-left: 50px;
 
     /* width: calc(50vh - 150px); */
     min-width: -moz-available;
@@ -106,6 +102,29 @@ p{
     font-size: larger;
 }
 
+.input-container{
+    display: flex;
+    justify-content: center;
+    margin-right: 15px;
+    margin-bottom: 20px;
+}
+
+.input-field-icon{
+    border: none;
+    outline: none;
+}
+
+.input-field{
+    text-indent: 5px;    
+    border-radius: 5px;
+    border: 2px solid gray;
+    color: gray;
+    width: 500px;
+}
+
+.input-field input{
+    width: 450px;
+}
 
 @media (max-width: 1200px) {
    
@@ -113,12 +132,9 @@ p{
         padding-left: 15px;
     }
     .list{
-         padding-right: 15px;
-
-     }
-    
+        padding-right: 15px;
+     }   
 }
-    
 
 @media (max-width: 900px) {
    
@@ -126,6 +142,19 @@ p{
     margin-top:  70px;
     height: calc(50vh - 0px);
     width: calc(200px);
+    padding-right: 0px;
+    padding-left: 0px;
+}
+.input-field{
+    text-indent: 5px;    
+    border-radius: 5px;
+    border: 2px solid gray;
+    color: gray;
+    width: 250px;
+}
+
+.input-field input{
+    width: 200px;
 }
 
 }
@@ -170,7 +199,6 @@ ul{
     .name{
         font-weight: 500;
         font-size: 12px;
-    
     }
     
     #date{
