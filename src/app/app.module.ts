@@ -30,7 +30,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { MatCommonModule, MatDividerModule } from '@angular/material';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { FilterPipe } from './interface/filter';
+import { DeviceFilterPipe } from './interface/device-filter';
 
 
 @NgModule({
@@ -46,7 +46,7 @@ import { FilterPipe } from './interface/filter';
     DeviceGridComponent,
     DeviceDetailComponent,
     NoDataComponent,
-    FilterPipe
+    DeviceFilterPipe
   ],
   imports: [
     BrowserModule,

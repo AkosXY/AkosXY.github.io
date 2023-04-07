@@ -3,15 +3,21 @@
 <div class="container">
     <div class="row">
         <div class="offset-mf-2 col-lg-6 col-md-8 offsetlg-4 offset-md-3">
-            <div class="panel border shadow-lg p-3 mb-5 bg-white rounded-4">
+            <div name="content" class="panel border shadow-lg p-3 mb-5 bg-white rounded-4">
                 <div class="panel-heading">
                     <img src="assets/images/labloot_icon.png" alt="">
                     <div class="text-container">
                         <h2><span class="pt-5 fw-bold">LabLoot </span><span class="fst-italic">Admin</span></h2>
-                        <h3 class="pl-4">Bejelentkezés</h3>
+                        <div *ngIf="this.loginView, else signupTitle">
+                            <h3 class="pl-4">Bejelentkezés</h3>
+                        </div>
+                        <ng-template #signupTitle>
+                            <h3 class="pl-4">Regisztáció</h3>
+                          </ng-template>
                     </div>
                 </div>
-                <div class="panel-body p-3">
+                <!-- LOGIN -->
+                <div class="panel-body p-3" *ngIf="this.loginView, else signupBlock">
                     <form>
                         <div class="from-group p-2">
                             <div [formGroup]="loginForm"  class="input-container p-3">
@@ -27,10 +33,42 @@
                                     </div>
                                 </div>
                                 <button type="button" (click)="login()" [disabled]="loginForm.invalid" class="btn btn-primary mt-5">Bejelentkezés</button>
+                                <p class="nav-text mt-3"> <span>Nincs felhasználói fiókja? </span> <span class="link" (click)="toggleLoginView()">regisztáció</span> </p>
+                                
                             </div>
                         </div>
                     </form>
                 </div>
+                <!-- SIGNUP -->
+                <ng-template class="panel-body p-3" #signupBlock>
+                    <form [formGroup]="signupForm">
+                      <div class="from-group p-2">
+                        <div class="input-container p-3">
+                          <div class="input-email p-2">
+                            <i class="fa-solid fa-envelope pr-2"></i>
+                            <input formControlName="newEmailForm" class="input-field pt-1 pb-1 pr-1" type="text" name="" id="" type="email" placeholder="email" size="29">
+                          </div>
+                          <div class="input-password p-2">
+                            <i class="fa-solid fa-key pr-2"></i>
+                            <input formControlName="newPassForm" minlength="6" class="input-field pt-1 pb-1 pr-1" [type]="passType" name="" id="" type="password" placeholder="jelszó" size="29">
+                          </div>
+                          <div class="input-password p-2">
+                            <i class="fa-solid fa-key pr-2"></i>
+                            <div class="input-field">
+                              <input formControlName="newPassComfirmForm" minlength="6" class="input-field-password p-1 " [type]="passType" name="" id="" type="password" placeholder="megerősítés" size="23">
+                              <i (click)="hideShowPassword()" class="fa-solid {{showIcon}} "></i>
+                            </div>
+                          </div>
+                          <button type="button" (click)="signup()" [disabled]="signupForm.invalid" class="btn btn-primary mt-5">Regisztáció</button>
+                          <p class="nav-text mt-3">
+                            <span>Már van fiókja?: </span>
+                            <span class="link" (click)="toggleLoginView()">bejelentkezés</span>
+                          </p>
+                        </div>
+                      </div>
+                    </form>
+                </ng-template>
+                  
             </div>
 
         </div>

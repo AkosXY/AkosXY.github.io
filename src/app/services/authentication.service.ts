@@ -37,6 +37,26 @@ export class AuthenticationService {
       })
   }
 
+  signup(email:string, password:string){
+    this.angularFireAuth.createUserWithEmailAndPassword(email,password)
+    .then(result =>{
+      console.log(result)
+      console.log("signup Success");
+      alert("sikeres regisztráció")
+      this.login(email, password, ()=>{
+        //console.log("success");
+      },
+      ()=>{
+        //console.log("failed");
+      })
+    })
+    .catch(error => {
+      console.log(error);
+      alert("regisztráció sikertelen")
+    })
+
+  }
+
   logout(){
     this.angularFireAuth.signOut()
       .then(()=>{
