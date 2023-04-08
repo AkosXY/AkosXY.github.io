@@ -5,7 +5,6 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { MydevicesComponent } from './components/mydevices/mydevices.component';
 import { NewdeviceComponent } from './components/newdevice/newdevice.component';
-import { PendingComponent } from './components/pending/pending.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 const routes: Routes = [

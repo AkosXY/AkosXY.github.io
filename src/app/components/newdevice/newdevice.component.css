@@ -17,8 +17,18 @@
     min-width: -webkit-fill-available;
     min-width: fill-available;
     overflow: hidden;
+/*     width: calc(50vh);
+    text-align: left;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    padding: 0;
+    margin-left: 0px;
+    z-index: 900; */
 }
   
+
+
 
 .input-field{
     text-indent: 5px;    
