@@ -5,15 +5,15 @@
         <div class="from-group p-2">
             <div [formGroup]="deviceForm"  class="input-container p-3">
                 <div class="p-2">
-                    <input [formControl]="nameForm" class="input-field pt-1 pb-1 pr-1" type="text" name="" id="" type="email" placeholder={{namePlaceholder}} size="29">
+                    <input [formControl]="nameForm" class="input-field pt-1 pb-1 pr-1"  maxlength="45" type="text" type="text" placeholder={{namePlaceholder}} size="29">
                 </div>
                 <div class="input-email p-2">
-                    <textarea [formControl]="descriptionForm" class="input-field pt-1 pb-1 pr-1" type="text" name="" id="" type="email" placeholder={{descriptionPlaceholder}} size="29"></textarea>
+                    <textarea [formControl]="descriptionForm" class="input-field pt-1 pb-1 pr-1" cols="20" rows="5" wrap="hard" maxlength="300" type="text" type="text" placeholder={{descriptionPlaceholder}} size="29"></textarea>
                 </div>  
                 <div class="p-2">
-                    <input [formControl]="InventoryIdForm" class="input-field pt-1 pb-1 pr-1" type="text" name="" id="" type="email" placeholder={{InventoryIdPlaceholder}} size="29">
+                    <input [formControl]="InventoryIdForm" class="input-field pt-1 pb-1 pr-1" maxlength="45" type="text" type="text" placeholder={{InventoryIdPlaceholder}} size="29">
                 </div>
-                <button type="button" (click)="submitDevice()" [disabled]="deviceForm.invalid" class="btn btn-primary mt-5">Felvétel</button>
+                <button type="button" (click)="submitDevice()" [disabled]="deviceForm.invalid" class="btn btn-primary m-4">Felvétel</button>
             </div>
         </div>
     </div>

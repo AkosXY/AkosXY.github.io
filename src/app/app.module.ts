@@ -19,7 +19,6 @@ import {AngularFireModule} from "@angular/fire/compat";
 import {AuthenticationService} from "./services/authentication.service";
 import { NavComponent } from './components/nav/nav.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { PendingComponent } from './components/pending/pending.component';
 import { MydevicesComponent } from './components/mydevices/mydevices.component';
 import { NewdeviceComponent } from './components/newdevice/newdevice.component';
 import { DeviceGridComponent } from './device/device-grid/device-grid.component';
@@ -40,7 +39,6 @@ import { DeviceFilterPipe } from './interface/device-filter';
     HomeComponent,
     NavComponent,
     SidebarComponent,
-    PendingComponent,
     MydevicesComponent,
     NewdeviceComponent,
     DeviceGridComponent,
@@ -64,8 +62,6 @@ import { DeviceFilterPipe } from './interface/device-filter';
     FormsModule,
       
     NgxSkeletonLoaderModule.forRoot({ animation: 'pulse', loadingText: 'This item is actually loading...'}),
-    //provideFirebaseApp(() => initializeApp(environment.firebase)),
-    //provideAuth(() => getAuth()),
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [AuthenticationService],
