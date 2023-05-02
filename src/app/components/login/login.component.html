@@ -18,20 +18,28 @@
                 </div>
                 <!-- LOGIN -->
                 <div class="panel-body p-3" *ngIf="this.loginView, else signupBlock">
-                    <form>
+                    <form [formGroup]="loginForm" >
                         <div class="from-group p-2">
-                            <div [formGroup]="loginForm"  class="input-container p-3">
+                            <div  class="input-container p-3">
                                 <div class="input-email p-2">
                                     <i class="fa-solid fa-envelope pr-2"></i>
-                                    <input [formControl]="emailForm" class="input-field pt-1 pb-1 pr-1" type="text" name="" id="" type="email" placeholder="email" size="29">
+                                    <input [formControl]="emailForm" class="input-field pt-1 pb-1 pr-1" 
+                                      (focus)="emailFormFocused= true" (blur)="emailFormFocused = false" 
+                                      [ngClass]="{'input-field': !emailInvalid(emailForm), 'input-field-error': emailInvalid(emailForm)}"
+                                      type="text" name="" id="" type="email" placeholder="email" size="29">
                                 </div>
+                                <small *ngIf="emailForm.dirty && emailForm.hasError('required')" class="text-danger ml-4"> * Email szükséges</small>
+                                <small *ngIf="emailForm.touched && emailForm.hasError('email')" class="text-danger ml-4"> * Helytelen email</small>
                                 <div class="input-password p-2">
-                                    <i class="fa-solid fa-key pr-2"></i>
-                                    <div class="input-field">
-                                        <input [formControl]="passwordForm" class="input-field-password p-1 " [type]="passType" name="" id="" type="password" placeholder="jelszó" size="23">
-                                        <i (click)="hideShowPassword()" class="fa-solid {{showIcon}} "></i>
-                                    </div>
+                                  <i class="fa-solid fa-key pr-2"></i>
+                                  <div  [ngClass]="{'input-field': !passwordInvalid(passwordForm), 'input-field-error': passwordInvalid(passwordForm)}">
+                                    <input [formControl]="passwordForm" class="input-field-password p-1 " 
+                                      (focus)="passwordFormFocused= true" (blur)="passwordFormFocused = false"
+                                      [type]="passType" name="" id="" type="password" placeholder="jelszó" size="23">
+                                    <i (click)="hideShowPassword()" class="fa-solid {{showIcon}} "></i>
+                                  </div>
                                 </div>
+                                <small *ngIf="passwordForm.dirty && passwordForm.hasError('required')" class="text-danger ml-4"> * Jelszó megadása szükséges</small>
                                 <button type="button" (click)="login()" [disabled]="loginForm.invalid" class="btn btn-primary mt-5">Bejelentkezés</button>
                                 <p class="nav-text mt-3"> <span>Nincs felhasználói fiókja? </span> <span class="link" (click)="toggleLoginView()">regisztáció</span> </p>
                                 
@@ -46,19 +54,34 @@
                         <div class="input-container p-3">
                           <div class="input-email p-2">
                             <i class="fa-solid fa-envelope pr-2"></i>
-                            <input formControlName="newEmailForm" class="input-field pt-1 pb-1 pr-1" type="text" name="" id="" type="email" placeholder="email" size="29">
+                            <input [formControl]="newEmailForm" class="input-field pt-1 pb-1 pr-1" 
+                              (focus)="emailFormFocused= true" (blur)="emailFormFocused = false" 
+                              [ngClass]="{'input-field': !emailInvalid(newEmailForm), 'input-field-error': emailInvalid(newEmailForm)}"
+                              type="text" name="" id="" type="email" placeholder="email" size="29">
                           </div>
+                          <small *ngIf="newEmailForm.dirty && newEmailForm.hasError('required')" class="text-danger ml-4"> * Email szükséges</small>
+                          <small *ngIf="newEmailForm.touched && newEmailForm.hasError('email')" class="text-danger ml-4"> * Helytelen email</small>
                           <div class="input-password p-2">
                             <i class="fa-solid fa-key pr-2"></i>
-                            <input formControlName="newPassForm" minlength="6" class="input-field pt-1 pb-1 pr-1" [type]="passType" name="" id="" type="password" placeholder="jelszó" size="29">
+                            <input [formControl]="newPassForm" minlength="6" class="input-field pt-1 pb-1 pr-1" 
+                              [ngClass]="{'input-field': !passwordInvalid(newPassForm), 'input-field-error': passwordInvalid(newPassForm)}"  
+                              (focus)="passwordFormFocused= true" (blur)="passwordFormFocused = false" 
+                              [type]="passType" name="" id="" type="password" placeholder="jelszó" size="29">
                           </div>
-                          <div class="input-password p-2">
+                          <small *ngIf="newPassForm.dirty && newPassForm.hasError('required')" class="text-danger ml-4"> * Jelszó megadása szükséges</small>
+                          <small *ngIf="newPassForm.touched && 1 < newPassForm.value!.length && newPassForm.value!.length < 6" class="text-danger ml-4"> * Jelszó túl rövid</small>
+                          <div class="input-password p-2" >
                             <i class="fa-solid fa-key pr-2"></i>
-                            <div class="input-field">
-                              <input formControlName="newPassComfirmForm" minlength="6" class="input-field-password p-1 " [type]="passType" name="" id="" type="password" placeholder="megerősítés" size="23">
+                            <div class="input-field" [ngClass]="{'input-field': !passwordInvalid(newPassComfirmForm), 'input-field-error': passwordInvalid(newPassComfirmForm)}">
+                              <input [formControl]="newPassComfirmForm" minlength="6" class="input-field-password p-1 "
+                                (focus)="passwordFormFocused= true" (blur)="passwordFormFocused = false" 
+                                [type]="passType" name="" id="" type="password" placeholder="megerősítés" size="23">
                               <i (click)="hideShowPassword()" class="fa-solid {{showIcon}} "></i>
                             </div>
                           </div>
+                          <small *ngIf="newPassComfirmForm.dirty && newPassComfirmForm.hasError('required')" class="text-danger ml-4"> * Jelszó megadása szükséges</small>
+                          <small *ngIf="newPassComfirmForm.touched && 1< newPassComfirmForm.value!.length && newPassComfirmForm.value!.length < 6" class="text-danger ml-4"> * Jelszó túl rövid</small>
+                          <small *ngIf="newPassComfirmForm.touched && newPassComfirmForm.value!= newPassForm.value" class="text-danger ml-4"> * Jelszó nem egyezik meg</small>
                           <button type="button" (click)="signup()" [disabled]="signupForm.invalid" class="btn btn-primary mt-5">Regisztáció</button>
                           <p class="nav-text mt-3">
                             <span>Már van fiókja?: </span>

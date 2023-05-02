@@ -45,9 +45,12 @@
     color: black;
 }
 
-.input-field.error{
-    border: 2px solid red;
-    color: red;
+
+.input-field-error{
+    text-indent: 5px;    
+    border-radius: 5px;
+    border: 2px solid rgb(219, 48, 70);
+    color: rgb(219, 48, 70);
 }
 
 button{
@@ -83,4 +86,8 @@ button{
 .nav-text{
     justify-self: center;
     font-size: small;
+}
+
+.error > *{
+    color: red;
 }

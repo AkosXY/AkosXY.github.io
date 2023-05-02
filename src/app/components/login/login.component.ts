@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup,FormControl,Validators, ValidatorFn, ValidationErrors} from '@angular/forms'
+import {FormGroup,FormControl,Validators, ValidatorFn, ValidationErrors, Form} from '@angular/forms'
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import {signInWithEmailAndPassword} from "firebase/auth";
 import firebase from "firebase/compat";
@@ -25,19 +25,22 @@ export class LoginComponent implements OnInit {
   showIcon: string = "fa-eye icon-padding";
   loginView:boolean = true;
 
-  newEmail:string = "";
-  newPass:string = "";
-  newPassComfirm:string = "";
+  emailFormFocused = false;
+  passwordFormFocused = false;
+/* 
+wasd@wasd.com
+555555
+*/
 
-  emailForm = new FormControl("wasd@wasd.com",Validators.email);
-  passwordForm = new FormControl("555555",Validators.required);
-  
+  emailForm = new FormControl("",[ Validators.email, Validators.required]);
+  passwordForm = new FormControl("",Validators.required);
+
   loginForm = new FormGroup({
     emailForm:this.emailForm,
     passwordForm:this.passwordForm
   })
   
-  newEmailForm = new FormControl("",Validators.email);
+  newEmailForm = new FormControl("",[ Validators.email, Validators.required]);
   newPassForm = new FormControl("",Validators.required);
   newPassComfirmForm = new FormControl("",Validators.required);
   
@@ -94,23 +97,14 @@ export class LoginComponent implements OnInit {
     this.loginView = !this.loginView;
   }
 
+  emailInvalid(emailForm:FormControl):boolean{
+    return (emailForm.dirty && emailForm.hasError('required') || emailForm.touched && emailForm.hasError('email')) && !this.emailFormFocused;
+  }
 
-/*   passwordMatchValidator(formGroup: FormGroup) {
-    const password = formGroup.get('newPassForm')?.value;
-    const confirmPassword = formGroup.get('newPassComfirmForm')?.value;
-  
-    return password === confirmPassword ? null : { passwordMismatch: true };
-  } */
+  passwordInvalid(passwordForm:FormControl):boolean{
+    return (passwordForm.dirty && passwordForm.hasError('required')) && !this.passwordFormFocused;
+  }
 
-/*   passwordMatchValidator(formGroup: any) {
-    const password = formGroup.get('newPassForm').value;
-    const confirmPassword = formGroup.get('newPassComfirmForm').value;
 
-    if (password !== confirmPassword) {
-      formGroup.get('newPassComfirmForm').setErrors({ passwordMismatch: true });
-    } else {
-      formGroup.get('newPassComfirmForm').setErrors(null);
-    }
-  } */
 
 }

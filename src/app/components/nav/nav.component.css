@@ -19,12 +19,6 @@ nav{
   align-items: center;
 }
 
-/* .left-items i{
-  color: white;
-  font-size: x-large;
-  padding: 20px;
-}
- */
 .icon-style{
   color: white;
   font-size: x-large;
@@ -35,6 +29,10 @@ nav{
   color: white;
   font-size: x-large;
   padding: 20px;
+}
+
+.fa-circle-info{
+  font-size: larger;
 }
 
 
