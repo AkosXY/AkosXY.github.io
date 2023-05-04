@@ -7,12 +7,12 @@
                 <div class="panel-heading">
                     <img src="assets/images/labloot_icon.png" alt="">
                     <div class="text-container">
-                        <h2><span class="pt-5 fw-bold">LabLoot </span><span class="fst-italic">Admin</span></h2>
+                        <h2><span class="pt-5 fw-bold ">LabLoot </span><span class="fst-italic ">Admin</span></h2>
                         <div *ngIf="this.loginView, else signupTitle">
-                            <h3 class="pl-4">Bejelentkezés</h3>
+                            <h3 class="pl-4 shrink-text">Bejelentkezés</h3>
                         </div>
                         <ng-template #signupTitle>
-                            <h3 class="pl-4">Regisztáció</h3>
+                            <h3 class="pl-4 shrink-text">Regisztáció</h3>
                           </ng-template>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
                             <div class="input-field" [ngClass]="{'input-field': !passwordInvalid(newPassComfirmForm), 'input-field-error': passwordInvalid(newPassComfirmForm)}">
                               <input [formControl]="newPassComfirmForm" minlength="6" class="input-field-password p-1 "
                                 (focus)="passwordFormFocused= true" (blur)="passwordFormFocused = false" 
-                                [type]="passType" name="" id="" type="password" placeholder="megerősítés" size="23">
+                                [type]="passType" name="" id="" type="password" placeholder="megerősítés" size="22">
                               <i (click)="hideShowPassword()" class="fa-solid {{showIcon}} "></i>
                             </div>
                           </div>
