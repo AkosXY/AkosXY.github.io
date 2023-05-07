@@ -1,5 +1,20 @@
-<h1>LabLoot</h1>
 
-<div *ngIf="getLogin() == 'false'">
-    <button (click)="loginPage()">Bejelentkezés</button>
+<br><br><br>
+<div class="container">
+    <div class="row">
+        <div class="offset-mf-2 col-lg-6 col-md-8 offsetlg-4 offset-md-3">
+            <div name="content" class="panel border shadow-lg p-3 mb-5 bg-white rounded-4">
+                <div class="panel-heading">
+                    <img src="assets/images/labloot_icon.png" alt="">
+                    <div class="text-container">
+                        <h2 class="pl-4 shrink-text"><span>Üdvözöljük a </span><span class="pt-5 fw-bold ">LabLoot </span><span class="fst-italic ">Admin</span><span> felületén!</span></h2>
+                    </div>
+                </div>
+                <div class="panel-body p-3 d-flex flex-column" *ngIf="getLogin() == 'false'">  
+                    <button class="btn btn-primary button" (click)="loginPage()">Tovább a webes felületre</button>       
+                </div>
+                
+            </div>
+        </div>
+    </div>
 </div>

@@ -51,7 +51,6 @@ li:hover{
     align-items: center;
     justify-content: space-between;
     margin: 0px 30px;
-    
 }
 
 .selected{
@@ -223,6 +222,20 @@ ul{
         font-size:  x-small;
 
     }
+    
+    .device-card{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-start;
+        margin: 0px 30px;
+        
+    }
+    ul{
+        width: 280px;
+        color: red;
+    }
+    
     
 }
 

@@ -28,7 +28,7 @@ export class SidebarComponent implements OnInit {
   }
   
   selected():string{
-    return this.routing.getSelected()
+    return this.routing.getSelected() 
   }
 
   logout(){

@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { RoutingService } from 'src/app/services/routing.service';
 import {AuthenticationService} from "../../services/authentication.service";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css','../login/login.component.css']
 })
 export class HomeComponent implements OnInit {
 

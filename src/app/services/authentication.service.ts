@@ -24,7 +24,7 @@ export class AuthenticationService {
             sessionStorage.setItem('user_id', this.user_id);
         })
         onSuccess();
-        this.router.navigate(['/']);
+        this.router.navigate(['/mydevices']);
         this.loginState = true;
         sessionStorage.setItem('loginState', 'true');
         this.loginUser = email;

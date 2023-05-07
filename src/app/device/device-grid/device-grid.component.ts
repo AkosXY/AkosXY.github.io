@@ -15,7 +15,6 @@ import { Subject, debounceTime, map } from 'rxjs';
 })
 export class DeviceGridComponent implements OnInit {
 
- /*  @Output() selectDevice = new EventEmitter<Device>(); */
   
  @Output() deviceSelected = new EventEmitter<Device>();
   mydevices: Device[] = [];
@@ -32,6 +31,7 @@ export class DeviceGridComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.loadDevices()
+    console.log("asds")
   }
 
   onDeviceSelected(device: Device) {
