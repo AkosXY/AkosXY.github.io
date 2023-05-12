@@ -27,8 +27,8 @@ export class LoginComponent implements OnInit {
   showLoginError = false;
 
 
-  emailForm = new FormControl("wasd@wasd.com",[ Validators.email, Validators.required]);
-  passwordForm = new FormControl("555555",Validators.required);
+  emailForm = new FormControl("",[ Validators.email, Validators.required]);
+  passwordForm = new FormControl("",Validators.required);
 
   loginForm = new FormGroup({
     emailForm:this.emailForm,

@@ -4,6 +4,7 @@ import { DevicestateEnum } from 'src/app/interface/devicestate.enum';
 import { RoutingService } from 'src/app/services/routing.service';
 import { FormControl } from '@angular/forms';
 import { DeviceService } from 'src/app/services/device.service';
+import { Observable, of, delay, concatMap } from 'rxjs';
 
 @Component({
   selector: 'app-device-grid',
@@ -37,6 +38,7 @@ export class DeviceGridComponent implements OnInit {
   }
 
   loadDevices(){
+    this.loading = true;
     this.deviceService.getDevices(this.routing.getApi()).subscribe(device => {
       if(this.routing.getSelected() == "/pending"){
         device = device.filter(filtered =>
