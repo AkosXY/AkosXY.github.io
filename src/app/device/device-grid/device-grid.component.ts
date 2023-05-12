@@ -1,12 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Device, NULL_DEVICE } from 'src/app/interface/device.interface';
 import { DevicestateEnum } from 'src/app/interface/devicestate.enum';
-import { DeviceService } from 'src/app/services/device.service';
-import { NgxSkeletonLoaderComponent } from 'ngx-skeleton-loader';
 import { RoutingService } from 'src/app/services/routing.service';
-import { FormControl, FormGroup } from '@angular/forms';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { Subject, debounceTime, map } from 'rxjs';
+import { FormControl } from '@angular/forms';
+import { DeviceService } from 'src/app/services/device.service';
 
 @Component({
   selector: 'app-device-grid',
@@ -30,8 +27,7 @@ export class DeviceGridComponent implements OnInit {
 
 
   async ngOnInit(): Promise<void> {
-    this.loadDevices()
-    console.log("asds")
+    this.loadDevices() 
   }
 
   onDeviceSelected(device: Device) {
@@ -61,7 +57,11 @@ export class DeviceGridComponent implements OnInit {
     }
   }
 
-  /* Test */
+  getDeviceService(){
+    return this.deviceService;
+  }
+
+  /* Test 
   testDevice:Device = {
     deviceId: 0,
     name: "DeviceName",
@@ -83,10 +83,8 @@ export class DeviceGridComponent implements OnInit {
       retDevice.push(this.testDevice)
     return retDevice;
   }
+  */
 
-  getDeviceService(){
-    return this.deviceService;
-  }
 
 
 }

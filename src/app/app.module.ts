@@ -7,44 +7,29 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule} from '@angular/material/button';
 
-
-
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
 
 import { HomeComponent } from './components/home/home.component';
 import {AngularFireModule} from "@angular/fire/compat";
 import {AuthenticationService} from "./services/authentication.service";
 import { NavComponent } from './components/nav/nav.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { MydevicesComponent } from './components/mydevices/mydevices.component';
-import { NewdeviceComponent } from './components/newdevice/newdevice.component';
-import { DeviceGridComponent } from './device/device-grid/device-grid.component';
-import { DeviceDetailComponent } from './device/device-detail/device-detail.component';
 import { HttpClientModule  } from '@angular/common/http';
-import { NoDataComponent } from './components/no-data/no-data.component';
-import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
-import { MatCommonModule, MatDividerModule } from '@angular/material';
-import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+import { MatDividerModule } from '@angular/material';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { DeviceFilterPipe } from './interface/device-filter';
+import { RoutingService } from './services/routing.service';
+import { DeviceService } from './services/device.service';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     HomeComponent,
     NavComponent,
-    SidebarComponent,
-    MydevicesComponent,
-    NewdeviceComponent,
-    DeviceGridComponent,
-    DeviceDetailComponent,
-    NoDataComponent,
-    DeviceFilterPipe
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -57,14 +42,12 @@ import { DeviceFilterPipe } from './interface/device-filter';
     MatListModule,
     MatButtonModule,
     MatDividerModule,
-    NgxQRCodeModule,
+
     Ng2SearchPipeModule,
     FormsModule,
-      
-    NgxSkeletonLoaderModule.forRoot({ animation: 'pulse', loadingText: 'This item is actually loading...'}),
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+   AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
-  providers: [AuthenticationService],
+  providers: [AuthenticationService, DeviceService, RoutingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,7 +9,6 @@
 
   </div>
   <div class="list">
-    <!-- <no-data *ngIf="this.mydevices.length < 1"></no-data> -->
     <ul *ngFor="let number of [0]">
       <li class="shadow" *ngFor="let device of mydevices | devicefilter:searchTerm.toString() : this.selectedDevice" (click) ="onDeviceSelected(device)" [ngClass]="{ 'selected': isDeviceSeleced(device) }">
         <div class="device-card" >
@@ -25,6 +24,7 @@
       </li>
     </ul>
     <ngx-skeleton-loader class="loader" count={{totalCount}} appearance="line" *ngIf="loading"></ngx-skeleton-loader>
+    <no-data *ngIf="!loading && mydevices.length == 0"></no-data>
   </div>
 </div>
 

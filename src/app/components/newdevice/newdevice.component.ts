@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Device, NULL_DEVICE } from 'src/app/interface/device.interface';
+import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { Device } from 'src/app/interface/device.interface';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { DeviceService } from 'src/app/services/device.service';
 
@@ -20,8 +20,6 @@ export class NewdeviceComponent implements OnInit {
   namePlaceholder = "név";
   InventoryIdPlaceholder = "leltárszám";
   descriptionPlaceholder = "leírás";
-
-  //device:Device = NULL_DEVICE;
 
   deviceForm = new FormGroup({
     nameForm:this.nameForm,

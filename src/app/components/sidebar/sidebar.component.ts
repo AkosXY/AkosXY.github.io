@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { RoutingService } from 'src/app/services/routing.service';
 
@@ -12,16 +11,10 @@ export class SidebarComponent implements OnInit {
 
   @Input() showSidebar: Boolean = true;
 
-/*   sidebarVisible = true;
-  showSidebar = false;
- */
   constructor(private authService :AuthenticationService, private routing:RoutingService) { }
 
   ngOnInit(): void {
-    //this.selected = sessionStorage.getItem('selected') || '';
   }
-
-
 
   navigate(url:string){
    this.routing.navigate(url);

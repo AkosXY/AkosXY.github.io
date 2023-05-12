@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup,FormControl,Validators, ValidatorFn, ValidationErrors, Form} from '@angular/forms'
-import { AuthenticationService } from 'src/app/services/authentication.service';
-import {signInWithEmailAndPassword} from "firebase/auth";
-import firebase from "firebase/compat";
-import auth = firebase.auth;
+import {FormGroup,FormControl,Validators, ValidatorFn} from '@angular/forms'
+import { AuthenticationService } from 'src/app/services/authentication.service'
 
 export function passwordMatchValidator(): ValidatorFn {
   return (control): {[key: string]: any} | null => {
@@ -29,8 +26,8 @@ export class LoginComponent implements OnInit {
   passwordFormFocused = false;
 
 
-  emailForm = new FormControl("wasd@wasd.com",[ Validators.email, Validators.required]);
-  passwordForm = new FormControl("555555",Validators.required);
+  emailForm = new FormControl("",[ Validators.email, Validators.required]);
+  passwordForm = new FormControl("",Validators.required);
 
   loginForm = new FormGroup({
     emailForm:this.emailForm,

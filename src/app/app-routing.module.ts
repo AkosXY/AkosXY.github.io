@@ -1,17 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
-import { MydevicesComponent } from './components/mydevices/mydevices.component';
-import { NewdeviceComponent } from './components/newdevice/newdevice.component';
-import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 const routes: Routes = [
-    {path:'login', component:LoginComponent},
-    {path:'mydevices', component:MydevicesComponent},
-    {path:'pending', component:MydevicesComponent},
-    {path:'newdevice', component:NewdeviceComponent},
+
+    {path:'login', loadChildren: () => import("./components/login/login.module").then(m => m.LoginModule)},
+    {path:'mydevices', loadChildren: () => import("./components/mydevices/mydevice.module").then(m => m.DeviceModule)},
+    {path:'pending', loadChildren: () => import("./components/mydevices/mydevice.module").then(m => m.DeviceModule)},
+    {path:'newdevice', loadChildren: () => import("./components/newdevice/newdevice.module").then(m => m.NewDeviceModule)},
     {path:'', component:HomeComponent}
 ];
 

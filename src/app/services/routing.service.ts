@@ -1,8 +1,5 @@
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import { map, Observable } from "rxjs";
-import { Device } from "../interface/device.interface";
-import { DevicestateEnum } from "../interface/devicestate.enum";
 import { AuthenticationService } from "./authentication.service";
 
 @Injectable({
@@ -25,14 +22,12 @@ export class RoutingService{
     navigate(url:string){
         sessionStorage.setItem('selected', url);
         this.selected = url;
-        console.log(url)
         this.router.navigate([url]);
     }
 
     getSelected():string{
         return sessionStorage.getItem('selected') || RoutingService.defaultPage;
     }
-    /* switch(sessionStorage.getItem('selected')){ */
 
     getApi(){
         this.selected = sessionStorage.getItem('selected') || RoutingService.defaultPage;

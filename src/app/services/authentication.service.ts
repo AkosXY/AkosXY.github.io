@@ -25,11 +25,11 @@ export class AuthenticationService {
         })
         onSuccess();
         this.router.navigate(['/mydevices']);
+        sessionStorage.setItem('selected','/mydevices')
         this.loginState = true;
         sessionStorage.setItem('loginState', 'true');
         this.loginUser = email;
         sessionStorage.setItem('loginUser', email);
-
       })
       .catch(error => {
         console.log(error);
@@ -76,7 +76,7 @@ export class AuthenticationService {
     return sessionStorage.getItem('user_id') || '';
   }
 
-  getUserEmail(){
+  getUserEmail():string{
     return sessionStorage.getItem('loginUser') || '';
 
   }

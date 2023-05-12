@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit  } from '@angular/core';
 import { Device, NULL_DEVICE } from 'src/app/interface/device.interface';
 import { DevicestateEnum, getKeyByValue } from 'src/app/interface/devicestate.enum';
 import { DeviceService } from 'src/app/services/device.service';

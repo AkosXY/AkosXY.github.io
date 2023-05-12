@@ -1,17 +1,15 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { map, Observable, retry } from "rxjs";
+import { map, Observable } from "rxjs";
 import { Device } from "../interface/device.interface";
 import { DevicestateEnum, getKeyByValue } from "../interface/devicestate.enum";
-import { AuthenticationService } from "./authentication.service";
-import { RoutingService } from "./routing.service";
 
 @Injectable({
     providedIn:"root"
 })
 
 export class DeviceService{
-    
+
     private apiUrl = "https://labloot.azurewebsites.net/";
     constructor(private http:HttpClient){}
 
@@ -21,7 +19,6 @@ export class DeviceService{
         }
         ).pipe(
             map(items => {
-                console.log(items.status)
                 return items.body || []
             })
         )   
