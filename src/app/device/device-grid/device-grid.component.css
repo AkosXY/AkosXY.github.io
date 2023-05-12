@@ -121,7 +121,18 @@ p{
     border: 2px solid gray;
     color: gray;
     width: 500px;
+    margin-left: auto;
 }
+
+.refresh{
+    font-size: x-large;
+    color: gray;
+    margin-left: auto;
+    /* border: 2px solid gray; */
+    border-radius: 50%;
+}
+
+
 
 .input-field input{
     width: 450px;

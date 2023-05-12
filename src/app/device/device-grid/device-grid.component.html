@@ -6,7 +6,9 @@
       <input [(ngModel)]="searchTerm" class="input-field-icon pt-1 pb-1 pr-1" type="text" name="" id="" type="email" placeholder="search" size="29">
       <i class="fa-solid fa-magnifying-glass"></i>
     </div>
-
+    <div class="refresh" (click)="refresh()">
+      <i class="fa-solid fa-arrow-rotate-right"></i>
+    </div>
   </div>
   <div class="list">
     <ul *ngFor="let number of [0]">

@@ -61,6 +61,11 @@ export class DeviceGridComponent implements OnInit {
     return this.deviceService;
   }
 
+  refresh(){
+    console.log("refreshing")
+    this.loadDevices() 
+  }
+
   /* Test 
   testDevice:Device = {
     deviceId: 0,
