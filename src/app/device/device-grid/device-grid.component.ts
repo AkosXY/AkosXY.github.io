@@ -4,7 +4,6 @@ import { DevicestateEnum } from 'src/app/interface/devicestate.enum';
 import { RoutingService } from 'src/app/services/routing.service';
 import { FormControl } from '@angular/forms';
 import { DeviceService } from 'src/app/services/device.service';
-import { Observable, of, delay, concatMap } from 'rxjs';
 
 @Component({
   selector: 'app-device-grid',
@@ -14,7 +13,7 @@ import { Observable, of, delay, concatMap } from 'rxjs';
 export class DeviceGridComponent implements OnInit {
 
   
- @Output() deviceSelected = new EventEmitter<Device>();
+  @Output() deviceSelected = new EventEmitter<Device>();
   mydevices: Device[] = [];
   loading = true;
   totalCount = 9;

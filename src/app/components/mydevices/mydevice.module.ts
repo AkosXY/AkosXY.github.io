@@ -13,6 +13,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { DeviceService } from 'src/app/services/device.service';
 import { RoutingService } from 'src/app/services/routing.service';
 import { NoDataComponent } from '../no-data/no-data.component';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 
 
 const routes: Routes = [
@@ -33,6 +34,9 @@ const routes: Routes = [
     imports: [
         ReactiveFormsModule,
         FormsModule,
+        ConfirmationPopoverModule.forRoot({
+          confirmButtonType: 'danger', // set defaults here
+        }),
         CommonModule,
         NgxQRCodeModule,
         NgxSkeletonLoaderModule.forRoot({ animation: 'pulse', loadingText: 'This item is actually loading...'}),

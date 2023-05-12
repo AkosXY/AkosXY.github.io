@@ -1,8 +1,12 @@
-import { Component, Input, OnInit  } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output  } from '@angular/core';
 import { Device, NULL_DEVICE } from 'src/app/interface/device.interface';
 import { DevicestateEnum, getKeyByValue } from 'src/app/interface/devicestate.enum';
 import { DeviceService } from 'src/app/services/device.service';
 import { RoutingService } from 'src/app/services/routing.service';
+import { ViewChild } from '@angular/core';
+import { DeviceGridComponent } from '../device-grid/device-grid.component';
+
+
 
 @Component({
   selector: 'app-device-detail',
@@ -10,7 +14,7 @@ import { RoutingService } from 'src/app/services/routing.service';
   styleUrls: ['./device-detail.component.css']
 })
 export class DeviceDetailComponent implements OnInit {
-  
+
   @Input() device: Device= NULL_DEVICE;
 
   nulldevice = NULL_DEVICE;
@@ -18,15 +22,27 @@ export class DeviceDetailComponent implements OnInit {
   title = 'app';
   elementType = 'url';
   value = 'this is the value';
+  direction = "top"
 
-  constructor(private deviceService: DeviceService,private router: RoutingService) { }
+  constructor(private deviceService: DeviceService) { 
+  }
 
   ngOnInit(): void {
+    this.onWindowResize()
   }
 
   handleEvent(value: any){
     console.log(value);
 
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onWindowResize() {
+    if(window.innerWidth < 900){
+      this.direction = "bottom"
+    } else{
+      this.direction = "top"
+    }
   }
 
   getDeviceService(){
@@ -50,6 +66,7 @@ export class DeviceDetailComponent implements OnInit {
     })
   }
 
+  
   approveDeviceState(device: Device){
     let nextState = DevicestateEnum[device.state];
     if(device.state == getKeyByValue(DevicestateEnum.REQUESTED)){
