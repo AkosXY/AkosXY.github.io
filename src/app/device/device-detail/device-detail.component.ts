@@ -38,8 +38,8 @@ export class DeviceDetailComponent implements OnInit {
   }
 
 
-  showStateButtons():boolean{
-      return DevicestateEnum[this.device.state] == DevicestateEnum.REQUESTED;
+  isDisabled(){
+    return DevicestateEnum[this.device.state] == DevicestateEnum.FREE || DevicestateEnum[this.device.state] == DevicestateEnum.IN_USE
   }
 
   changeDeviceState(device: Device, state:DevicestateEnum){
