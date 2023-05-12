@@ -1,4 +1,9 @@
-<div>
-    <p class="name pb-5">Nincs hozzád rendelt eszköz.</p>
+<div *ngIf="!pendingSelected(); else allDevice">
+    <p class="name pb-5" >Nincs hozzád rendelt eszköz.</p>
     <button class="btn btn btn-primary" (click)="navigate()">Új szköz felvétele</button>
 </div>
+
+<ng-template #allDevice>
+    <p class="name pb-5">Nincs Jóváhagyásra váró eszköz.</p>
+</ng-template>
+

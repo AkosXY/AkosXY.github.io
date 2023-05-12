@@ -13,7 +13,12 @@ export class NoDataComponent{
 
     navigate(){
         this.routing.navigate('/newdevice')
-      }
+    }
+
+    pendingSelected():boolean{
+        console.log(this.routing.getSelected() == "/pending")
+        return (this.routing.getSelected() == "/pending")
+    }
     
 
 }
