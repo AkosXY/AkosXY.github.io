@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
 
   emailFormFocused = false;
   passwordFormFocused = false;
+  showLoginError = false;
 
 
   emailForm = new FormControl("",[ Validators.email, Validators.required]);
@@ -53,10 +54,11 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.valid){
       this.authService.login(email,pass,
         ()=>{
-          //console.log("success");
+          console.log("success");
         },
         ()=>{
-          //console.log("failed");
+          console.log("failed");
+          this.showLoginError = true;
         }
         );
     }

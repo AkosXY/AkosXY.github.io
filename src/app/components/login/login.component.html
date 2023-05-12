@@ -40,6 +40,7 @@
                                   </div>
                                 </div>
                                 <small *ngIf="passwordForm.dirty && passwordForm.hasError('required')" class="text-danger ml-4"> * Jelszó megadása szükséges</small>
+                                <small *ngIf="showLoginError" class="text-danger ml-4"> * Bejelentkezés sikertelen</small>
                                 <button type="button" (click)="login()" [disabled]="loginForm.invalid" class="btn btn-primary mt-5">Bejelentkezés</button>
                                 <p class="nav-text mt-3"> <span>Nincs felhasználói fiókja? </span> <span class="link" (click)="toggleLoginView()">regisztáció</span> </p>
                                 
