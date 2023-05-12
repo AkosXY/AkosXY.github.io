@@ -129,6 +129,7 @@ p{
     color: gray;
     margin-left: auto;
     /* border: 2px solid gray; */
+    cursor: pointer;
     border-radius: 50%;
 }
 

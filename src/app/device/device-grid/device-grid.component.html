@@ -11,20 +11,22 @@
     </div>
   </div>
   <div class="list">
-    <ul *ngFor="let number of [0]">
-      <li class="shadow" *ngFor="let device of mydevices | devicefilter:searchTerm.toString() : this.selectedDevice" (click) ="onDeviceSelected(device)" [ngClass]="{ 'selected': isDeviceSeleced(device) }">
-        <div class="device-card" >
-          <div class="text">
-            <p class="name" [ngClass]="{ 'name-selected': isDeviceSeleced(device) }">{{device.name}}</p>
-            <p>{{device.inventoryId ? device.inventoryId:"-"}}</p>
+    <div *ngIf="!loading">
+      <ul *ngFor="let number of [0]" >
+        <li class="shadow" *ngFor="let device of mydevices | devicefilter:searchTerm.toString() : this.selectedDevice" (click) ="onDeviceSelected(device)" [ngClass]="{ 'selected': isDeviceSeleced(device) }">
+          <div class="device-card">
+            <div class="text">
+              <p class="name" [ngClass]="{ 'name-selected': isDeviceSeleced(device) }">{{device.name}}</p>
+              <p>{{device.inventoryId ? device.inventoryId:"-"}}</p>
+            </div>
+            <div class="info">
+              <p id="date">{{device.startDate ? (device.startDate|date: 'yyyy-MM-dd') : '-'}}</p>
+              <p [ngClass]="getDeviceService().getStateColor(device.state)"> {{getDeviceService().getStateLabel(device.state)}}</p>
+            </div>
           </div>
-          <div class="info">
-            <p id="date">{{device.startDate ? (device.startDate|date: 'yyyy-MM-dd') : '-'}}</p>
-            <p [ngClass]="getDeviceService().getStateColor(device.state)"> {{getDeviceService().getStateLabel(device.state)}}</p>
-          </div>
-        </div>
-      </li>
-    </ul>
+        </li>
+      </ul>
+    </div>
     <ngx-skeleton-loader class="loader" count={{totalCount}} appearance="line" *ngIf="loading"></ngx-skeleton-loader>
     <no-data *ngIf="!loading && mydevices.length == 0"></no-data>
   </div>
