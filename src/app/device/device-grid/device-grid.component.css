@@ -133,6 +133,9 @@ p{
     border-radius: 50%;
 }
 
+.icon-refresh{
+    color: rgb(100, 100, 100);
+}
 
 
 .input-field input{

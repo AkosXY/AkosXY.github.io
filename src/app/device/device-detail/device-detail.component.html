@@ -31,7 +31,7 @@
     <div class="buttons-container" >
             <!--  <button class="btn btn-primary mt-1" (click)="changeDeviceState(device, DevicestateEnum.IN_USE)">Elfogad</button>
             <button class="btn btn-warning mt-1" (click)="changeDeviceState(device, DevicestateEnum.FREE)">Felszabadít</button> -->
-            <button class="btn btn-success mt-1" [disabled]="isDisabled()" (click)="approveDeviceState(device)">Elfogad</button>
+            <button class="btn btn-success mt-1" [disabled]="isDisabled()" (click)="approveDeviceState(device)"> <i class="fa fa-check"></i>  Elfogad</button>
             <button class="btn btn-danger mt-1" 
                 mwlConfirmationPopover
                 popoverTitle="Biztosan törli?"
@@ -41,7 +41,7 @@
                 cancelButtonType="default"
                 [reverseButtonOrder]=true
                 [placement]="direction"
-                (confirm)="deleteDevice(device)">Törlés
+                (confirm)="deleteDevice(device)"><i class="fa fa-trash"></i> Törlés
             </button>
 
             <!-- <button class="btn btn-secondary mt-1" (click)="changeDeviceState(device, DevicestateEnum.REQUESTED)" type="submit">REQUESTED</button> -->
