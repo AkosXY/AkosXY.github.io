@@ -76,6 +76,14 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  forgotPassword(){
+    let email = window.prompt("Adja meg a fiókjához tartozó e-mail-címet a jelszó megváltoztatásához.","");
+    console.log(email)
+    if(email !== null){
+      this.authService.forgotPassword(email)
+    }
+  }
+
 
   hideShowPassword(){
     this.isText = !this.isText;

@@ -68,6 +68,18 @@ export class AuthenticationService {
       })
   }
 
+  forgotPassword(email:string){
+    this.angularFireAuth.sendPasswordResetEmail(email).then(result =>{
+      console.log(result)
+      alert("Jelszóváltoztató email elküldése sikeres volt.")
+    })
+    .catch(error => {
+      console.log(error);
+      alert("Email elküldése sikertelen, kérjük ellenőrízze, hogy helyes-e a megadott email címe. Amennyiben nincs fiókja kérjük válassza a regisztáció opciót.")
+    })
+
+  }
+
   getLoginState():string{
     return sessionStorage.getItem('loginState') || 'false';
   }
