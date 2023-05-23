@@ -82,6 +82,18 @@ export class DeviceDetailComponent implements OnInit {
     })
   }
 
+  rejectDeviceState(device:Device){
+    let nextState = DevicestateEnum[device.state];
+    if(device.state == getKeyByValue(DevicestateEnum.REQUESTED)){
+      nextState = DevicestateEnum.FREE;
+    } 
+    this.deviceService.changeDeviceState(device, nextState).subscribe((success) => {
+      if(success){
+        
+      }
+    })
+  }
+
 
   deleteDevice(device:Device){
     this.deviceService.deleteDevice(device).subscribe((success) => {
