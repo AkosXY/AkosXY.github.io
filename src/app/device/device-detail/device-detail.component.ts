@@ -1,10 +1,7 @@
-import { Component, EventEmitter, HostListener, Input, OnInit, Output  } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output, SimpleChanges  } from '@angular/core';
 import { Device, NULL_DEVICE } from 'src/app/interface/device.interface';
 import { DevicestateEnum, getKeyByValue } from 'src/app/interface/devicestate.enum';
 import { DeviceService } from 'src/app/services/device.service';
-import { RoutingService } from 'src/app/services/routing.service';
-import { ViewChild } from '@angular/core';
-import { DeviceGridComponent } from '../device-grid/device-grid.component';
 
 
 
@@ -16,6 +13,7 @@ import { DeviceGridComponent } from '../device-grid/device-grid.component';
 export class DeviceDetailComponent implements OnInit {
 
   @Input() device: Device= NULL_DEVICE;
+  @Input() showEditView = false;
 
   nulldevice = NULL_DEVICE;
   public DevicestateEnum = DevicestateEnum;
@@ -36,6 +34,17 @@ export class DeviceDetailComponent implements OnInit {
 
   }
 
+  onDeviceUpdated(updatedDevice: Device) {
+    this.device = updatedDevice;
+    this.showEditView = false
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['device'] && this.device) {
+      this.showEditView = false
+    }
+  }
+
   @HostListener('window:resize', ['$event'])
   onWindowResize() {
     if(window.innerWidth < 900){
@@ -53,6 +62,9 @@ export class DeviceDetailComponent implements OnInit {
     return device.deviceId;
   }
 
+  toggleShowEditView(){
+    this.showEditView = !this.showEditView;
+  }
 
   isDisabled(){
     return DevicestateEnum[this.device.state] == DevicestateEnum.FREE || DevicestateEnum[this.device.state] == DevicestateEnum.IN_USE

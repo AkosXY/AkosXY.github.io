@@ -60,6 +60,24 @@ export class DeviceService{
         )
     }
 
+    updateDevice(device: Device): Observable<boolean>{
+        let url = this.apiUrl + "admin/updateDevice";
+        return this.http.post<Device>(url, device,{
+            observe:"response"
+        }).pipe(
+            map(resp => {
+                console.log(resp.status);
+                if(resp.status == 200){
+                    alert("Sikeres frissítés");
+                    return true;
+                }else{
+                    alert("Sikertelen frissítés");
+                    return false;
+                }
+            })
+        )
+    }
+
     changeDeviceState(device: Device, state:DevicestateEnum): Observable<boolean>{
         let url = this.apiUrl + "admin/updateDevice";
         if(state == DevicestateEnum.FREE){
@@ -85,6 +103,7 @@ export class DeviceService{
             })
         )
     }
+
 
 
     getStateLabel(state: keyof typeof DevicestateEnum){

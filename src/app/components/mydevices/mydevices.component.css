@@ -32,6 +32,7 @@
 .right-section {
   grid-column: 2 / 3;
   max-width: 100%;
+  overflow: scroll;
 }
 
 @media (max-width: 1200px) {
@@ -58,6 +59,7 @@
   .right-section {
     grid-area: right-section;
     order: 1;
+    overflow: visible;
     
   }
 

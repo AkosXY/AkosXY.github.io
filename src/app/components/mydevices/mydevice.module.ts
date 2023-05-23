@@ -14,6 +14,7 @@ import { DeviceService } from 'src/app/services/device.service';
 import { RoutingService } from 'src/app/services/routing.service';
 import { NoDataComponent } from '../no-data/no-data.component';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
+import { EditdeviceComponent } from 'src/app/device/editdevice/editdevice.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,7 @@ const routes: Routes = [
 @NgModule({
     declarations:[
         DeviceGridComponent,
+        EditdeviceComponent,
         DeviceDetailComponent,
         MydevicesComponent,
         DeviceFilterPipe,

@@ -1,0 +1,24 @@
+
+<div class="from-group p-2">
+    <form [formGroup]="deviceForm" (ngSubmit)="saveChanges()">
+        <div class="input-container">
+            <label for="name">Név:</label> 
+            <input type="text" id="name" class="input-field pt-1 pb-1 pr-1" formControlName="nameForm" size="29">
+        </div>
+      
+        <div class="input-container">
+            <label for="inventoryId">Leltári szám:</label>
+            <input type="text" id="inventoryId" class="input-field pt-1 pb-1 pr-1" formControlName="InventoryIdForm" size="29">
+        </div>
+      
+        <div class="input-container">
+            <label for="description">Leírás:</label>
+            <textarea id="description" formControlName="descriptionForm" class="input-field pt-1 pb-1 pr-1" cols="20" rows="5" wrap="hard" maxlength="300" type="text" type="text" size="29"></textarea>
+        </div>
+      
+        <!-- Add more fields as needed -->
+      
+        <button type="button" (click)="updateDevice()" [disabled]="deviceForm.invalid" class="btn btn-primary m-4">Mentés</button>
+      </form>
+      
+</div>

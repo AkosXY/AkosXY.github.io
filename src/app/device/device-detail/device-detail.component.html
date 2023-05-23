@@ -44,8 +44,11 @@
                 [placement]="direction"
                 (confirm)="deleteDevice(device)"><i class="fa fa-trash"></i> Törlés
             </button>
+            <button class="btn btn-primary mt-1" (click)="toggleShowEditView()" > <i class="fa-solid fa-pen-to-square"></i> Módosítás</button>
 
             <!-- <button class="btn btn-secondary mt-1" (click)="changeDeviceState(device, DevicestateEnum.REQUESTED)" type="submit">REQUESTED</button> -->
     </div>
+
+    <app-editdevice *ngIf="showEditView" [device]="device" (deviceUpdated)="onDeviceUpdated($event)" ></app-editdevice>
 </div>
   
