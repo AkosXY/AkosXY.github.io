@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { map, Observable } from "rxjs";
-import { Device } from "../interface/device.interface";
+import { Device, NULL_DEVICE } from "../interface/device.interface";
 import { DevicestateEnum, getKeyByValue } from "../interface/devicestate.enum";
 
 @Injectable({
@@ -79,32 +79,56 @@ export class DeviceService{
     }
 
     changeDeviceState(device: Device, state:DevicestateEnum): Observable<boolean>{
-        let url = this.apiUrl + "admin/updateDevice";
-        if(state == DevicestateEnum.FREE){
-            device.userId = "";
-            device.startDate = undefined;
-            device.dueDate = undefined;
-        } 
-        
-        device.state = getKeyByValue(state)
-        console.log(device)
-        return this.http.post<Device>(url, device,{
-            observe:"response"
-        }).pipe(
-            map(resp => {
-                console.log(resp.status);
-                if(resp.status == 200){
-                    alert("Sikeres frissítés");
-                    return true;
-                }else{
-                    alert("Sikertelen frissítés");
-                    return false;
-                }
-            })
-        )
+
+        let actualDevice = this.getDeviceState(device);
+        console.log(actualDevice.state)
+        if(device.state !== actualDevice.state){
+            return new Observable<boolean>((observer) => {
+                observer.next(false);
+                observer.complete();
+                alert("Az eszköz állapota megváltozott így a módosítást nem sikerült véghezvinni, kéjük frissítse a listát")
+              });
+        } else{
+            let url = this.apiUrl + "admin/updateDevice";
+            if(state == DevicestateEnum.FREE){
+                device.userId = "";
+                device.startDate = undefined;
+                device.dueDate = undefined;
+            } 
+            
+            device.state = getKeyByValue(state)
+            console.log(device)
+            return this.http.post<Device>(url, device,{
+                observe:"response"
+            }).pipe(
+                map(resp => {
+                    console.log(resp.status);
+                    if(resp.status == 200){
+                        alert("Sikeres frissítés");
+                        return true;
+                    }else{
+                        alert("Sikertelen frissítés");
+                        return false;
+                    }
+                })
+            )
+        }
     }
 
-
+    getDeviceState(device:Device):Device {
+        let url = this.apiUrl + "all/getDevice" + "?deviceId=" + device.deviceId;
+        this.http.get<Device>(url)
+        .subscribe({
+            next: response => {
+              return response
+            },
+            error: error => {
+              console.error(error);
+              return NULL_DEVICE
+            }
+          });
+          return NULL_DEVICE
+      }
 
     getStateLabel(state: keyof typeof DevicestateEnum){
         return DevicestateEnum[state];
