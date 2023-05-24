@@ -41,7 +41,8 @@ export class DeviceGridComponent implements OnInit {
     this.deviceService.getDevices(this.routing.getApi()).subscribe(device => {
       if(this.routing.getSelected() == "/pending"){
         device = device.filter(filtered =>
-          DevicestateEnum[filtered.state] == DevicestateEnum.REQUESTED
+          DevicestateEnum[filtered.state] == DevicestateEnum.REQUESTED ||
+          DevicestateEnum[filtered.state] == DevicestateEnum.RETURNED
         )
       }
       this.mydevices = device;

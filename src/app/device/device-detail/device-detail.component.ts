@@ -96,7 +96,8 @@ export class DeviceDetailComponent implements OnInit {
 
   rejectDeviceState(device:Device){
     let nextState = DevicestateEnum[device.state];
-    if(device.state == getKeyByValue(DevicestateEnum.REQUESTED)){
+    if(device.state == getKeyByValue(DevicestateEnum.REQUESTED) || 
+    device.state == getKeyByValue(DevicestateEnum.RETURNED)){
       nextState = DevicestateEnum.FREE;
     } 
     this.deviceService.changeDeviceState(device, nextState).subscribe((success) => {
