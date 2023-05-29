@@ -45,7 +45,7 @@ import { DeviceService } from './services/device.service';
 
     Ng2SearchPipeModule,
     FormsModule,
-   AngularFireModule.initializeApp(environment.firebaseConfig)
+   AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [AuthenticationService, DeviceService, RoutingService],
   bootstrap: [AppComponent]
